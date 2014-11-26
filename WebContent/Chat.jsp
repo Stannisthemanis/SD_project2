@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
 <html lang=''>
 
 <head>
@@ -10,7 +11,7 @@
    <link rel="stylesheet" href="styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="script.js"></script>
-   <title>CSS MenuMaker</title>
+   <title>Meeto: Collaboration and Social Networking</title>
 </head>
 <body bgcolor="#99ffff">
 
@@ -42,9 +43,7 @@
 </ul>
 </div>
 
-HOME under construction...
-
-meter algo aqui 
+Chat under construction...
 
 </body>
 </html>

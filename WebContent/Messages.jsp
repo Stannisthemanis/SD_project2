@@ -10,7 +10,7 @@
    <link rel="stylesheet" href="styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="script.js"></script>
-   <title>CSS MenuMaker</title>
+   <title>Meeto: Collaboration and Social Networking</title>
 </head>
 <body bgcolor="#99ffff">
 
@@ -34,7 +34,7 @@
       </ul>
    </li>
    
-   <li><a href='Messages.jsp'>Messages</a></li>
+   <li><a href='#'>Messages</a></li>
    
    <li><a href='TodoList.jsp'>TODO</a></li>
    <li><a href='OnlineUsers.jsp'>Online Users</a></li>
@@ -42,9 +42,7 @@
 </ul>
 </div>
 
-HOME under construction...
-
-meter algo aqui 
+messages under construction...
 
 </body>
 </html>
