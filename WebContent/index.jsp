@@ -12,12 +12,20 @@
 	<h1> Welcome to Meeto </h1>
 	<hr color="#0080C0" />
 	<s:form action="login" method="post">
-		<s:text name="Username: " />
-		<s:textfield name="username" /><br>
-        <s:text name="Password: " />
-		<s:password name="password" /><br>
-		<s:submit />
+		<s:textfield name="username" label="Username" required="true"/><br>
+		<s:password name="password" label="Password" required="true"/><br>
+		<s:submit value="Log in" align="center" />
+		<s:actionmessage />
 	</s:form>
+	<br> <br>
+	<a href="register.jsp"> Click here to register </a>
+	<!--  
+	<form action="login" method="post" name="formLogin">
+		Username: <input type="text" name="username"> <br><br>
+		Password: <input type="text" name="password"> <br><br>
+		<input type="button" value="Get in">
+	</form>
+	-->
 	</div>	
 </body>
 </html>

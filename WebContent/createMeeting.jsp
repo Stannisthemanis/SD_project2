@@ -37,8 +37,25 @@
    <li><a href='LogOut.jsp'>Logout</a></li>
 </ul>
 </div>
-  <h1> Creating a new meeting </h1>      
-  <form  action="NewMeetingAction" method="post" name="formCreateMeeting"> 
+  <h1> Creating a new meeting </h1>
+   <s:form action="NewMeetingAction" method="post"> 
+  	    <s:textfield name="title" label="Title" required="true"/> 
+  	   	<s:textfield name="outcome" label="Outcome" required="true"/> 
+        <s:textfield name="local" label="Local" required="true"/>
+        <s:textfield name="date" label="Date" required="true"/>
+        <s:textfield name="start" label="Starting time" required="true"/>     
+        <s:select label="Guests"
+	        name="months"
+	        headerKey="-1"
+	        list="#{'01':'ver como se faz isto', '02':'de alguma forma tem de ir buscar os nomes...'}"
+	        value="selectedguest"
+	        multiple="true"
+	        required="true"
+ 		/>
+  	  	<s:submit value="Create meeting" />
+    </s:form>
+        
+ <!-- <form  action="NewMeetingAction" method="post" name="formCreateMeeting"> 
         <br/>
   	    Title: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
   	    <input type="text" name="title"> 
@@ -61,8 +78,8 @@
        ver a parte dos convidados..
        <br/> <br>
        	
- 	  <input type="submit" value="Register"> 
+ 	  <input type="submit" value="Create meeting"> 
   </form> 
-	  
+	-->  
 </body>
 </html>
