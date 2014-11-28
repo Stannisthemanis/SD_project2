@@ -22,5 +22,16 @@
       <result name="success">/Home.jsp</result>
       <result name="login">/index.jsp</result>
     </action>
+    
+    <action name="registerNewUser" class="meeto.sd2project.NewUserAction" method="execute">
+      <result name="success">/Home.jsp</result>
+      <result name="login">/Erro.jsp</result>
+    </action>
+    
+    <action name="newMeting" class="meeto.sd2project.NewMeetingAction" method="execute">
+      <result name="success">/Home.jsp</result>
+      <result name="login">/Erro.jsp</result>
+    </action>
+    
   </package>
 </struts>
