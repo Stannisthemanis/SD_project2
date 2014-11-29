@@ -4,34 +4,40 @@
 	  "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-  <package name="default" extends="struts-default">
-	<default-action-ref name="index" />	
-	<global-results>
-		<result name="error">/Error.jsp</result>
-	</global-results>
+	<package name="default" extends="struts-default">
+		<default-action-ref name="index" />
+		<global-results>
+			<result name="error">/Error.jsp</result>
+		</global-results>
 
-	<global-exception-mappings>
-		<exception-mapping exception="java.lang.Exception" result="error" />
-	</global-exception-mappings>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
 
-    <action name="index">
-      <result>/index.jsp</result>
-    </action>
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
 
-    <action name="login" class="meeto.sd2project.action.LoginAction" method="execute">
-      <result name="success">/Home.jsp</result>
-      <result name="login">/index.jsp</result>
-    </action>
-    
-    <action name="registerNewUser" class="meeto.sd2project.NewUserAction" method="execute">
-      <result name="success">/Home.jsp</result>
-      <result name="login">/Erro.jsp</result>
-    </action>
-    
-    <action name="newMeting" class="meeto.sd2project.NewMeetingAction" method="execute">
-      <result name="success">/Home.jsp</result>
-      <result name="login">/Erro.jsp</result>
-    </action>
-    
-  </package>
+		<action name="login" class="meeto.sd2project.action.LoginAction"
+			method="execute">
+			<result name="success">/Home.jsp</result>
+			<result name="login">/index.jsp</result>
+		</action>
+
+		<action name="registerNewUser" class="meeto.sd2project.action.RegisterUserAction"
+			method="execute">
+			<result name="success">/index.jsp</result>
+			<result name="login">/Erro.jsp</result>
+		</action>
+
+		<action name="logout" class="meeto.sd2project.action.LogoutAction"
+			method="execute">
+		</action>
+
+		<!-- <action name="newMeting" class="meeto.sd2project.NewMeetingAction" 
+			method="execute"> <result name="success">/Home.jsp</result> <result name="login">/Erro.jsp</result> 
+			</action> -->
+
+	</package>
 </struts>
