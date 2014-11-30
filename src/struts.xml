@@ -35,9 +35,19 @@
 			method="execute">
 		</action>
 
-		<!-- <action name="newMeting" class="meeto.sd2project.NewMeetingAction" 
-			method="execute"> <result name="success">/Home.jsp</result> <result name="login">/Erro.jsp</result> 
-			</action> -->
+		<action name="correctDate" class="meeto.sd2project.action.CorrectDateAction"
+			method="execute">
+		</action>
+
+		<action name="users" class="meeto.sd2project.action.OtherUsersAction"
+			method="execute">
+		</action>
+
+		<action name="newMeting" class="meeto.sd2project.action.NewMeetingAction"
+			method="execute">
+			<result name="success">/Home.jsp</result>
+			<result name="login">/Erro.jsp</result>
+		</action>
 
 	</package>
 </struts>

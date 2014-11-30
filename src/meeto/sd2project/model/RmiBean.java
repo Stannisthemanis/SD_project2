@@ -87,7 +87,17 @@ public class RmiBean {
 		}
 	}
 	
-	
+	public String getListOtherUsers(String username){
+		while(true){
+			try {
+				return rmiServer.getListOtherUsers(username);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 	
 	
 	
