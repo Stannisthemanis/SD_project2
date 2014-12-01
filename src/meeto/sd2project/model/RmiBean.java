@@ -99,6 +99,18 @@ public class RmiBean {
 		}
 	}
 	
+	public boolean insertNewMeeting(String newMeeting){
+		while(true){
+			try {
+				rmiServer.addNewMeeting(newMeeting);
+				return true;
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 	
 	
 	
