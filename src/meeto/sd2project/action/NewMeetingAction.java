@@ -1,7 +1,11 @@
 package meeto.sd2project.action;
 
 import java.util.Map;
+
 import com.opensymphony.xwork2.ActionSupport;
+
+import meeto.sd2project.model.RmiBean;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 public class NewMeetingAction extends ActionSupport implements SessionAware {
@@ -14,11 +18,20 @@ public class NewMeetingAction extends ActionSupport implements SessionAware {
 	private String				year				= null;
 	private String				hour				= null;
 	private String				minute				= null;
+	private String				duration			= null;
 	private String				invitedUsers		= null;
+	private String				agendaItens			= null;
+	private Map<String, Object>	session;
 	
 	public String execute() {
-		System.out.println(invitedUsers);
-		System.out.println(invitedUsers.equals(""));
+		String date = day + "/" + month + "/" + year + "," + hour + ":" + minute;
+		String listAgendaItens = agendaItens.replace("\n", ",");
+		if (invitedUsers.equals("")) {
+			invitedUsers = "none";
+		}
+		String newMeeting = String.format("%s-%s-%s-%s-%s-%s-%s-%s", (String) session.get("username"), outcome, local, title, date, invitedUsers,
+				listAgendaItens, duration);
+		getRmiBean().insertNewMeeting(newMeeting);
 		return SUCCESS;
 	}
 	
@@ -96,8 +109,36 @@ public class NewMeetingAction extends ActionSupport implements SessionAware {
 	
 	@Override
 	public void setSession(Map<String, Object> arg0) {
-		// TODO Auto-generated method stub
-		
+		this.session = session;		
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public String getAgendaItens() {
+		return agendaItens;
+	}
+
+	public void setAgendaItens(String agendaItens) {
+		this.agendaItens = agendaItens;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
 	}
 	
+	public RmiBean getRmiBean() {
+		if (!session.containsKey("RmiBean"))
+			this.setRmiBean(new RmiBean());
+		return (RmiBean) session.get("RmiBean");
+	}
+	
+	public void setRmiBean(RmiBean rmiBean) {
+		this.session.put("RmiBean", rmiBean);
+	}
 }

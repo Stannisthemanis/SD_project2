@@ -15,15 +15,17 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 	
 	@Override
 	public String execute() {
-		System.out.println("yaay");
+		String userToRemove=((String)session.get("username"));
 		if (getRmiBean().logout(session.get("username").toString())) {
 			session.remove("username");
+			System.out.println("removing "+ userToRemove);
+			getRmiBean().removeUserOnline(userToRemove);
+			System.out.println(userToRemove+" removed!");
 			return SUCCESS;
 		} else {
 			return LOGIN;
 		}
 	}
-	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

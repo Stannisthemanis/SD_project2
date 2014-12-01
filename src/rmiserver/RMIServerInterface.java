@@ -65,4 +65,10 @@ public boolean userExists(String username) throws RemoteException;
 	public boolean inviteUserToMeeting(String user, int id_meeting) throws RemoteException;
 	
 	public String getListOtherUsers(String username) throws RemoteException;
+	
+	public void setUserOnline(String username) throws RemoteException;
+	
+	public String getOnlineUsers() throws RemoteException;
+
+	public void deleteUserOnline(String username)throws RemoteException;
 }

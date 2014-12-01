@@ -48,8 +48,10 @@
 			name="year" />
 		<s:select label="Hour" list="#date.hourList" name="hour" />
 		<s:select label="Minutes" list="#date.minuteList" name="minute" />
-		<s:checkboxlist label="Users to invite" list="#user.usersList"
-			name="invitedUsers" value="none" />
+		<s:textfield name="duration" label="Duration(min)" required="true" />
+		<s:checkboxlist label="Users to invite"  list="#user.usersList"
+			name="invitedUsers"/>
+			<s:textarea label="Agenda Itens" name="agendaItens" col="100" row="40" />
 		<s:submit value="Create meeting" />
 	</s:form>
 

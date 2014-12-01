@@ -89,7 +89,7 @@ public class RmiBean {
 	
 	public String getListOtherUsers(String username){
 		while(true){
-			try {
+			try {				
 				return rmiServer.getListOtherUsers(username);
 			} catch (RemoteException e) {
 				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
@@ -99,8 +99,59 @@ public class RmiBean {
 		}
 	}
 	
+	public boolean insertNewMeeting(String newMeeting){
+		while(true){
+			try {
+				rmiServer.addNewMeeting(newMeeting);
+				return true;
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+	
+	public boolean putUserOnline(String username){
+		while(true){
+			try {
+				System.out.println("rmiServer.setUserOnline(username);....");
+				rmiServer.setUserOnline(username);
+				return true;
+			} catch (RemoteException e) {
+				System.out.println("->>> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->>> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+	
+	public boolean removeUserOnline(String username){
+		while(true){
+			try {
+				System.out.println("rmiServer.removeUserOnline(username);....");
+				rmiServer.deleteUserOnline(username);
+				return true;
+			} catch (RemoteException e) {
+				System.out.println("->>> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->>> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 	
 	
-	
-
+	public String getOnlineUsers(){
+		String res=null;
+		while(true){
+			try {
+				res = rmiServer.getOnlineUsers();
+				return res;
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 }

@@ -1,5 +1,6 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang=''>
 
@@ -41,8 +42,8 @@
    <li><a href='LogOut.jsp'>Logout</a></li>
 </ul>
 </div>
-
-Online users under construction...
+<s:action name="onlineUsers" executeResult="false" var="user" /> 
+<s:select multiple="true" label="Online Users" name="onlineUsers" list="#user.onlineUsersList" size="20"/>
 
 </body>
 </html>

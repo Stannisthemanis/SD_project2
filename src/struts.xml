@@ -48,6 +48,10 @@
 			<result name="success">/Home.jsp</result>
 			<result name="login">/Erro.jsp</result>
 		</action>
-
+		
+		<action name="onlineUsers" class="meeto.sd2project.action.OnlineUsersAction"
+			method="execute">
+		</action>
+		
 	</package>
 </struts>
