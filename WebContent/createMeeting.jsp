@@ -52,34 +52,9 @@
 		<s:checkboxlist label="Users to invite"  list="#user.usersList"
 			name="invitedUsers"/>
 			<s:textarea label="Agenda Itens" name="agendaItens" col="100" row="40" />
+		<s:textarea label="Agenda Itens" name="agendaItens" col="100" row="40" />
 		<s:submit value="Create meeting" />
 	</s:form>
 
-	<!-- <form  action="NewMeetingAction" method="post" name="formCreateMeeting"> 
-        <br/>
-  	    Title: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-  	    <input type="text" name="title"> 
-        <br/><br/>
-  	   	Outcome: &nbsp; &nbsp; &nbsp; 
-  	   	<input type="text" name="outecome"> 
-        <br/> <br>
-		Local:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-		<input type="text" name="local"> 
-        <br/> <br>
-        Date:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-        <input type="text" name="date">
-		<s:date name="d"  /><br/> <br>
-       Starting time: 
-       <input type="text" name="start"> (h) 
-       <br/> <br>
-       Duration: &nbsp; &nbsp; &nbsp; 
-       <input type="text" name="duration"> 
-       <br/> <br>
-       ver a parte dos convidados..
-       <br/> <br>
-       	
- 	  <input type="submit" value="Create meeting"> 
-  </form> 
-	-->
 </body>
 </html>

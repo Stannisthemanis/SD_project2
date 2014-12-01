@@ -107,29 +107,27 @@ public class NewMeetingAction extends ActionSupport implements SessionAware {
 		this.invitedUsers = invitedUsers;
 	}
 	
-	@Override
-	public void setSession(Map<String, Object> arg0) {
-		this.session = session;		
+	public Map<String, Object> getSession() {
+		return session;
 	}
-
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+	
 	public String getDuration() {
 		return duration;
 	}
-
+	
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-
+	
 	public String getAgendaItens() {
 		return agendaItens;
 	}
-
+	
 	public void setAgendaItens(String agendaItens) {
 		this.agendaItens = agendaItens;
-	}
-
-	public Map<String, Object> getSession() {
-		return session;
 	}
 	
 	public RmiBean getRmiBean() {
