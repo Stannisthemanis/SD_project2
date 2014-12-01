@@ -5,15 +5,14 @@ MODEL:
 
 VIEW:
 - fazer css / alterar fontes
-- mensagens de erro no login e no register
-- struts fora do sitio
-- UI das restantes paginas
 - no register, meter uma cena para retroceder
 - letras pretas em algumas partes do codigo
 - new mwwting: melhor forma de inserir data
 - mensagens de sucesso a inserir usr ou meeting
 - new meeting -> descobrir como adicionar agenda itens action itens 
+
 CONTROLER:
+-ver se o user ja esta logado
 
 OTHER:
 
