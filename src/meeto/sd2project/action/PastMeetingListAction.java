@@ -10,49 +10,48 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class OtherUsersAction extends ActionSupport implements SessionAware {
-	
-	private static final long	serialVersionUID	= 1L;
+public class PastMeetingListAction extends ActionSupport implements SessionAware {
 	private Map<String, Object>	session;
-	private List<String>		usersList;
+	private static final long	serialVersionUID	= 1L;
+	private List<String> meetingList;
 	
-	public String execute() {
+	
+	public String execute(){
 		String username = (String) session.get("username");
 		if (username == null) {
-			System.out.println("heere");
 			return LOGIN;
 		}
-		String users = getRmiBean().getListOtherUsers(username);
+		String messages = getRmiBean().getPastMeetingList(username);
 		List<String> list = new ArrayList<String>();
-		for (int i = 0; i < users.split("\n").length; i++) {
-			list.add(users.split("\n")[i]);
+		for (int i = 0; i < messages.split("\n").length; i++) {
+			list.add(messages.split("\n")[i]);
 		}
-		setUsersList(list);
+		setMeetingList(list);
 		return SUCCESS;
 	}
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-	}
-	
-	public List<String> getUsersList() {
-		return usersList;
-	}
-	
-	public void setUsersList(List<String> usersList) {
-		this.usersList = usersList;
+		
 	}
 	
 	public RmiBean getRmiBean() {
-		if (!session.containsKey("RmiBean")) {
+		if (!session.containsKey("RmiBean"))
 			this.setRmiBean(new RmiBean());
-		}
 		return (RmiBean) session.get("RmiBean");
 	}
 	
 	public void setRmiBean(RmiBean rmiBean) {
 		this.session.put("RmiBean", rmiBean);
 	}
-	
+
+	public List<String> getMeetingList() {
+		return meetingList;
+	}
+
+	public void setMeetingList(List<String> meetingList) {
+		this.meetingList = meetingList;
+	}
+
 }

@@ -6,6 +6,6 @@
 	</head> 
 	<body bgcolor="#99ffff">
 		<h1>Some Error has occured, Please try again later...</h1> 
-		<h2><a href="index.jsp">Login Page</a> </h4>
+		<h2><a href="index.jsp">Login Page</a> </h2>
 	</body> 
 </html>

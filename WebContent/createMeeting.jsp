@@ -35,8 +35,8 @@
 	</div>
 	<h1>Creating a new meeting</h1>
 
-	<s:action name="correctDate" executeResult="false" var="date" />
-	<s:action name="users" executeResult="false" var="user" />
+	<s:action name="correctDate" var="date" />
+	<s:action name="otherUsers" executeResult="true" var="user" />
 
 	<s:form action="newMeting" method="post">
 		<s:textfield name="title" label="Title" required="true" />
@@ -49,9 +49,8 @@
 		<s:select label="Hour" list="#date.hourList" name="hour" />
 		<s:select label="Minutes" list="#date.minuteList" name="minute" />
 		<s:textfield name="duration" label="Duration(min)" required="true" />
-		<s:checkboxlist label="Users to invite"  list="#user.usersList"
-			name="invitedUsers"/>
-			<s:textarea label="Agenda Itens" name="agendaItens" col="100" row="40" />
+		<s:checkboxlist label="Users to invite" list="#user.usersList"
+			name="invitedUsers" />
 		<s:textarea label="Agenda Itens" name="agendaItens" col="100" row="40" />
 		<s:submit value="Create meeting" />
 	</s:form>

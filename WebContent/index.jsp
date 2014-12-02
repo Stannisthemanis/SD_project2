@@ -20,7 +20,12 @@
 			<s:actionmessage />
 		</s:form>
 		<br> <br> <a href="register.jsp"> Click here to register
-		</a>
+		</a> <br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br>   
 		<!--  
 	<form action="login" method="post" name="formLogin">
 		Username: <input type="text" name="username"> <br><br>

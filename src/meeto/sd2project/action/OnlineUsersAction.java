@@ -3,9 +3,10 @@ import java.util.*;
 import meeto.sd2project.model.RmiBean;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
-import meeto.sd2project.model.RmiBean;
 
 public class OnlineUsersAction extends ActionSupport implements SessionAware {
+
+	private static final long	serialVersionUID	= 1L;
 	private Map<String, Object> session;
 	private List<String> onlineUsersList=new ArrayList<String>();
 	public String execute(){
@@ -23,7 +24,6 @@ public class OnlineUsersAction extends ActionSupport implements SessionAware {
 		if (!session.containsKey("RmiBean")){
 			this.setRmiBean(new RmiBean());
 		}
-		System.out.println("3");
 		return (RmiBean) session.get("RmiBean");
 	}
 	
