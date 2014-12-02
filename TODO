@@ -1,20 +1,19 @@
-TODO FILE:
-
+**** TODO FILE ****
 MODEL:
 
 
 VIEW:
-- fazer css / alterar fontes
-- no register, meter uma cena para retroceder
-- letras pretas em algumas partes do codigo
-- new mwwting: melhor forma de inserir data
 - mensagens de sucesso a inserir usr ou meeting
-- new meeting -> descobrir como adicionar agenda itens action itens 
+- new meeting nao aparecem os users todos
+- ver checklist infor
+- melhorar UI + fazer css / alterar fontes
+- melhorar UI do display das meetings
+
 
 CONTROLER:
--ver se o user ja esta logado
 
 OTHER:
-
-new rmiproject coz #javathings
-https://github.com/Stannisthemanis/Sd2_RMIServerV2.git
+- meter os websockets a bombar
+- bd, inserir dados fixes
+- new rmiproject coz #javathings
+- https://github.com/Stannisthemanis/Sd2_RMIServerV2.git
