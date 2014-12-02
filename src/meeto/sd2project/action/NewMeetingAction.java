@@ -24,12 +24,16 @@ public class NewMeetingAction extends ActionSupport implements SessionAware {
 	private Map<String, Object>	session;
 	
 	public String execute() {
+		String username = (String) session.get("username");
+		if (username == null) {
+			return LOGIN;
+		}
 		String date = day + "/" + month + "/" + year + "," + hour + ":" + minute;
 		String listAgendaItens = agendaItens.replace("\n", ",");
 		if (invitedUsers.equals("")) {
 			invitedUsers = "none";
 		}
-		String newMeeting = String.format("%s-%s-%s-%s-%s-%s-%s-%s", (String) session.get("username"), outcome, local, title, date, invitedUsers,
+		String newMeeting = String.format("%s-%s-%s-%s-%s-%s-%s-%s", username, outcome, local, title, date, invitedUsers,
 				listAgendaItens, duration);
 		getRmiBean().insertNewMeeting(newMeeting);
 		return SUCCESS;

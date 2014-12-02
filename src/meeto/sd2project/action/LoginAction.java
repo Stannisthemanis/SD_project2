@@ -9,9 +9,7 @@ import meeto.sd2project.model.RmiBean;
 import org.apache.struts2.interceptor.SessionAware;
 
 public class LoginAction extends ActionSupport implements SessionAware {
-	/**
-	 * 
-	 */
+
 	private static final long	serialVersionUID	= 1L;
 	private String				username			= null;
 	private String				password			= null;
@@ -22,7 +20,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		if (this.password != null && this.username != null) {
 			if (getRmiBean().login(username, password)) {
 				session.put("username", username);
-				System.out.println(session.get("username").toString() + "Loggedin");
+				System.out.println(session.get("username").toString() + " Loggedin");
 				System.out.println("c, putting "+((String)session.get("username"))+" online");
 				getRmiBean().putUserOnline(((String)session.get("username")));
 				return SUCCESS;

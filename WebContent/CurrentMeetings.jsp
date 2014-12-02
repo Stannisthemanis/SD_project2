@@ -1,6 +1,8 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
 <html lang=''>
 
 <head>
@@ -42,7 +44,30 @@
 </ul>
 </div>
 
-Current meetings under construction...
+	<s:action name="currentMeetingList" var="currentMeeting" />
+
+	<div align="center">
+		<h1>Past Meetings of user ${session.username}:</h1>
+		<br> <br>
+		<div style="width: 1000px; float: left;">
+			<p>Messages:</p>
+			<s:select list="#currentMeeting.meetingList" name="meeting" size="20"
+				style="width: 450px" />
+		</div>
+		<div style="margin-left: 100px;">
+			<div align="left">
+				<br> <br>
+				<h2>Meeting title:</h2>
+				<h2>Meeting local:</h2>
+				<h2>Meeting desired outcome:</h2>
+				<h2>Meeting start date:</h2>
+				<h2>Meeting end date:</h2>
+				<h2>Users attending:</h2>
+				<h2>Agenda itens:</h2>
+				<h2>Action itens:</h2>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

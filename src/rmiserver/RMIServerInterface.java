@@ -5,10 +5,9 @@ package rmiserver;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public interface RMIServerInterface extends Remote {
-public boolean userExists(String username) throws RemoteException;
+	public boolean userExists(String username) throws RemoteException;
 	
 	public boolean tryLogin(String username, String password) throws RemoteException;
 	
@@ -69,6 +68,6 @@ public boolean userExists(String username) throws RemoteException;
 	public void setUserOnline(String username) throws RemoteException;
 	
 	public String getOnlineUsers() throws RemoteException;
-
-	public void deleteUserOnline(String username)throws RemoteException;
+	
+	public void deleteUserOnline(String username) throws RemoteException;
 }
