@@ -140,6 +140,18 @@ public class RmiBean {
 		}
 	}
 	
+	public boolean isUserAlreadyOnline(String username){
+		while(true){
+			try {
+				return rmiServer.isUserOnline(username);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+	
 	
 	public String getOnlineUsers(){
 		String res=null;

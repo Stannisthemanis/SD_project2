@@ -1,5 +1,6 @@
 package meeto.sd2project.action;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,9 +23,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		if (this.password != null && this.username != null) {
 			if (getRmiBean().login(username, password)) {
 				session.put("username", username);
-				System.out.println(session.get("username").toString() + "Loggedin");
-				System.out.println("c, putting "+((String)session.get("username"))+" online");
-				getRmiBean().putUserOnline(((String)session.get("username")));
+				System.out.println("->"+!getRmiBean().isUserAlreadyOnline(username));
+				if(!getRmiBean().isUserAlreadyOnline(username)){
+					System.out.println("c, putting "+((String)session.get("username"))+" online");
+					getRmiBean().putUserOnline(((String)session.get("username")));
+				}	
+				
+				System.out.println(session.get("username").toString() + " Loggedin");
 				return SUCCESS;
 			} else {
 				return LOGIN;

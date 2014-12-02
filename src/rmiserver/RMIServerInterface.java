@@ -71,4 +71,6 @@ public boolean userExists(String username) throws RemoteException;
 	public String getOnlineUsers() throws RemoteException;
 
 	public void deleteUserOnline(String username)throws RemoteException;
+	
+	public boolean isUserOnline(String username) throws RemoteException;
 }
