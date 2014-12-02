@@ -66,12 +66,15 @@ public class RmiBean {
 	}
 	
 	public boolean logout(String username) {
+		int rufac=0;
 		while (true) {
 			try {
-				if (rmiServer.removeUserFromAllChats(username) != 0) {
+				rufac=rmiServer.removeUserFromAllChats(username);
+				System.out.println("rufac-> "+rufac);
+				//if (rufac!= 0) {
 					return true;
-				}
-				return false;
+				//}
+				//return false;
 			} catch (RemoteException e) {
 				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
 				System.out.println("->> Server: trying to reconnect...");
@@ -124,6 +127,7 @@ public class RmiBean {
 			try {
 				System.out.println("rmiServer.removeUserOnline(username);....");
 				rmiServer.deleteUserOnline(username);
+				
 				return true;
 			} catch (RemoteException e) {
 				System.out.println("->>> REMOTE Server: connection to rmiServer" + e.getMessage());
@@ -133,17 +137,17 @@ public class RmiBean {
 		}
 	}
 	
-	public boolean isUserAlreadyOnline(String username){
-		while(true){
-			try {
-				return rmiServer.isUserOnline(username);
-			} catch (RemoteException e) {
-				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
-				System.out.println("->> Server: trying to reconnect...");
-				connectToRmi();
-			}
-		}
-	}
+//	public boolean isUserAlreadyOnline(String username){
+//		while(true){
+//			try {
+//				return rmiServer.isUserOnline(username);
+//			} catch (RemoteException e) {
+//				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+//				System.out.println("->> Server: trying to reconnect...");
+//				connectToRmi();
+//			}
+//		}
+//	}
 	
 	
 	public String getOnlineUsers() {
