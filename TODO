@@ -4,7 +4,6 @@ MODEL:
 
 VIEW:
 - mensagens de sucesso a inserir usr ou meeting
-- new meeting nao aparecem os users todos
 - ver checklist infor
 - melhorar UI + fazer css / alterar fontes
 - melhorar UI do display das meetings

@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="styles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="script.js"></script>
-   <title>CSS MenuMaker</title>
+<title>Meeto: Collaboration and Social Networking</title>
 </head>
 <body bgcolor="#99ffff">
 
@@ -42,10 +42,11 @@
    <li><a href='LogOut.jsp' align="right">Logout (${session.username})</a></li>
 </ul>
 </div>
-
-HOME under construction...
-
-meter algo aqui 
+<h1>MEETO: </h1>
+<h3> Meetings are necessary when several people collaborate and work together. Students meet to coordinate their work on practical assignments; employees meet to
+discuss the status of projects; managers meet to make key decisions concerning
+their organisations; and so on. We need to prevent people from wasting time in
+useless meetings, because time is one of our most valuable resources. </h3> 
 
 </body>
 </html>
