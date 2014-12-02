@@ -40,7 +40,7 @@
    
    <li><a href='TodoList.jsp'>TODO</a></li>
    <li><a href='#'>Online Users</a></li>
-   <li><a href='LogOut.jsp'>Logout</a></li>
+   <li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 </ul>
 </div>
 <s:action name="onlineUsers" executeResult="false" var="user" /> 

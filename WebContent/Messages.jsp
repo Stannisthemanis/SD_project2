@@ -33,7 +33,7 @@
 
 			<li><a href='TodoList.jsp'>TODO</a></li>
 			<li><a href='OnlineUsers.jsp'>Online Users</a></li>
-			<li><a href='LogOut.jsp'>Logout</a></li>
+			<li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 		</ul>
 	</div>
 	<s:action name="messageList" var="messages" />

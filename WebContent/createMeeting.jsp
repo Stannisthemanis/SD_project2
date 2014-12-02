@@ -30,7 +30,7 @@
 			<li><a href='Messages.jsp'>Messages</a></li>
 			<li><a href='TodoList.jsp'>TODO</a></li>
 			<li><a href='OnlineUsers.jsp'>Online users</a></li>
-			<li><a href='LogOut.jsp'>Logout</a></li>
+			<li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 		</ul>
 	</div>
 	<h1>Creating a new meeting</h1>

@@ -39,7 +39,7 @@
    
    <li><a href=''>TODO</a></li>
    <li><a href='OnlineUsers.jsp'>Online Users</a></li>
-   <li><a href='LogOut.jsp'>Logout</a></li>
+   <li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 </ul>
 </div>
 
