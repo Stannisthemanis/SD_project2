@@ -71,6 +71,7 @@
             <result name="login">/index.jsp</result>
             <result name="success">sucess.jsp</result>
         </action>
+        
 		<action name="currentMeetingList" class="meeto.sd2project.action.CurrentMeetingListAction"
             method="execute">
             <result name="login">/index.jsp</result>
@@ -83,6 +84,10 @@
             <result name="success">sucess.jsp</result>
         </action>
         
+        <action name="getInfoMeeting" class="meeto.sd2project.action.UpcumingMeetingListAction"
+            method="getMeetingInfo">
+		 </action>
+		 
 		<action name="inviteInfo" class="meeto.sd2project.action.InvitesAction"
             method="execute">
             <result name="login">/index.jsp</result>

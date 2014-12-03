@@ -8,6 +8,7 @@ import meeto.sd2project.model.RmiBean;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CurrentMeetingListAction extends ActionSupport implements SessionAware {
@@ -29,6 +30,13 @@ public class CurrentMeetingListAction extends ActionSupport implements SessionAw
 		}
 		setMeetingList(list);
 		return SUCCESS;
+	}
+	
+	public String getMeetingInfo(){
+//		List<Student> MeetingsList = (List<Student>)ActionContext.getContext().getSession().get("currentMeeting.meetingList");
+//		int idemeeting = ActionContext.getContext().getSession().get("studentID");
+//		String studentName = student.getStudentName();
+		return "ooooo: " + (String) ActionContext.getContext().getSession().get("studentID");
 	}
 	
 	@Override
