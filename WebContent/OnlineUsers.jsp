@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>s
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -14,6 +15,11 @@
    <script src="script.js"></script>
    <title>Meeto: Collaboration and Social Networking</title>
 </head>
+	<c:choose>
+		<c:when test="${session.username == null}">
+			<c:redirect url="index.jsp"/>
+		</c:when>
+	</c:choose>
 <body bgcolor="#99ffff">
 
 <div id='cssmenu'>
@@ -43,8 +49,9 @@
    <li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 </ul>
 </div>
+<h1> Online users </h1>
 <s:action name="onlineUsers" executeResult="false" var="user" /> 
-<s:select multiple="true" label="Online Users" name="onlineUsers" list="#user.onlineUsersList" size="20"/>
+<s:select multiple="true" name="onlineUsers" list="#user.onlineUsersList" size="20" style="width: 450px" />
 
 </body>
 </html>

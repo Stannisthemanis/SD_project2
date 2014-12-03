@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -15,6 +16,11 @@
 <script src="script.js"></script>
 <title>Meeto: Collaboration and Social Networking</title>
 </head>
+	<c:choose>
+		<c:when test="${session.username == null}">
+			<c:redirect url="index.jsp"/>
+		</c:when>
+	</c:choose>
 <body bgcolor="#99ffff">
 
 	<div id='cssmenu'>

@@ -99,6 +99,6 @@
             <result name="login">/index.jsp</result>
             <result name="success">sucess.jsp</result>
         </action>
-		
+                
 	</package>
 </struts>
