@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -39,12 +40,12 @@
 
 	<s:action name="pastMeetingList" var="pastMeeting" />
 	<s:action name="meetingInfo" var="meetingInfo">
-		<s:param name="id_meeting">1</s:param>
+		<s:param name="id_meeting">4</s:param>
 	</s:action>
 
 	<script type="text/javascript">
 		function getMeetingInfo(id_meeting) {
-			
+			window.alert(id_meeting);
 		}
 	</script>
 
@@ -84,8 +85,12 @@
 							value="#meetingInfo.users" /></font>
 				</h2>
 				<h2>
-					Agenda itens: <font color="red"><s:property
-							value="#meetingInfo.agendaItens" /></font>
+					Agenda itens: <font color="red"> 
+					<c:forEach items="${meetingInfo.agendaItens}" var="agendaItens">
+						<c:out value="${AgendaItens}" />
+						<button onclick="getMeetingInfo(this.value)" value="${teste}">push me!</button>
+						<br>
+					</c:forEach></font>
 				</h2>
 				<h2>
 					Action itens: <font color="red"><s:property
