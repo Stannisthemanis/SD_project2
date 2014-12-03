@@ -82,6 +82,18 @@
             <result name="login">/index.jsp</result>
             <result name="success">sucess.jsp</result>
         </action>
+        
+		<action name="inviteInfo" class="meeto.sd2project.action.InvitesAction"
+            method="execute">
+            <result name="login">/index.jsp</result>
+            <result name="success">sucess.jsp</result>
+        </action>
+        
+		<action name="meetingInfo" class="meeto.sd2project.action.MeetingInfoAction"
+            method="execute">
+            <result name="login">/index.jsp</result>
+            <result name="success">sucess.jsp</result>
+        </action>
 		
 	</package>
 </struts>

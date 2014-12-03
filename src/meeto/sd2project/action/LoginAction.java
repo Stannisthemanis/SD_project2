@@ -22,10 +22,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			if (getRmiBean().login(username, password)) {
 				session.put("username", username);
 				//if(!getRmiBean().isUserAlreadyOnline(username)){
-					System.out.println("c, putting "+((String)session.get("username"))+" online");
+//					System.out.println("c, putting "+((String)session.get("username"))+" online");
 					getRmiBean().putUserOnline(((String)session.get("username")));
 				//}	
-				System.out.println(session.get("username").toString() + " Loggedin");
+//				System.out.println(session.get("username").toString() + " Loggedin");
 				getRmiBean().putUserOnline(((String)session.get("username")));
 				return SUCCESS;
 			} else {

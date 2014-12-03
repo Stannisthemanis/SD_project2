@@ -40,26 +40,47 @@
 
 
 	<s:action name="upcumingMeetingList" var="upcumingMeeting" />
+	<s:action name="meetingInfo" var="meetingInfo" />
 
 	<div align="center">
-		<h1>Past Meetings of user ${session.username}:</h1>
+		<h1>Upcuming Meetings of user ${session.username}:</h1>
 		<br> <br>
 		<div style="width: 1000px; float: left;">
 			<p>Messages:</p>
-			<s:select list="#upcumingMeeting.meetingList" name="meeting" size="20"
-				style="width: 450px" />
+			<s:select list="#upcumingMeeting.meetingList" name="meeting"
+				size="20" style="width: 450px" />
 		</div>
 		<div style="margin-left: 100px;">
 			<div align="left">
 				<br> <br>
-				<h2>Meeting title:</h2>
-				<h2>Meeting local:</h2>
-				<h2>Meeting desired outcome:</h2>
-				<h2>Meeting start date:</h2>
-				<h2>Meeting end date:</h2>
-				<h2>Users attending:</h2>
-				<h2>Agenda itens:</h2>
-				<h2>Action itens:</h2>
+				<h2>
+					Meeting title: <font color="red"><s:property
+							value="#meetingInfo.title" /></font>
+				</h2>
+				<h2>
+					Meeting local: <font color="red"><s:property
+							value="#meetingInfo.local" /></font>
+				</h2>
+				<h2>
+					Meeting desired outcome: <font color="red"><s:property
+							value="#meetingInfo.outcome" /></font>
+				</h2>
+				<h2>
+					Meeting start date: <font color="red"><s:property
+							value="#meetingInfo.startDate" /></font>
+				</h2>
+				<h2>
+					Meeting end date: <font color="red"><s:property
+							value="#meetingInfo.endDate" /></font>
+				</h2>
+				<h2>
+					Users attending: <font color="red"><s:property
+							value="#meetingInfo.users" /></font>
+				</h2>
+				<h2>
+					Agenda itens: <font color="red"><s:property
+							value="#meetingInfo.agendaItens" /></font>
+				</h2>
 			</div>
 		</div>
 	</div>
