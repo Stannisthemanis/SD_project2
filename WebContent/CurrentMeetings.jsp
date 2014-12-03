@@ -51,10 +51,12 @@
 		<br> <br>
 		<div style="width: 1000px; float: left;">
 			<p>Messages:</p>
-			<s:select list="#currentMeeting.meetingList" name="meeting" size="20"
-				style="width: 450px" />
+			<s:select list="#currentMeeting.meetingList" name="meeting" listKey="studentID" size="20" style="width: 450px"  />
+		<s:form action="getInfoMeeting" method="post">
+			<s:submit value="Get info" align="center" />
+		</s:form>
 		</div>
-		<div style="margin-left: 100px;">
+		<!--  <div style="margin-left: 100px;">
 			<div align="left">
 				<br> <br>
 				<h2>Meeting title:</h2>
@@ -66,7 +68,7 @@
 				<h2>Agenda itens:</h2>
 				<h2>Action itens:</h2>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 </body>

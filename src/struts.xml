@@ -82,6 +82,9 @@
             <result name="login">/index.jsp</result>
             <result name="success">sucess.jsp</result>
         </action>
+        <action name="getInfoMeeting" class="meeto.sd2project.action.UpcumingMeetingListAction"
+            method="getMeetingInfo">
+        </action>
 		
 	</package>
 </struts>
