@@ -96,7 +96,9 @@
 
 		<action name="meetingInfo" class="meeto.sd2project.action.MeetingInfoAction"
 			method="execute">
-			<result name="success">/pastMeetingInfo.jsp</result>
+			<result name="past">/pastMeetingInfo.jsp</result>
+			<result name="current">/currentMeetingInfo.jsp</result>
+			<result name="upcuming">/upcumingMeetingInfo.jsp</result>
 		</action>
 
 	</package>

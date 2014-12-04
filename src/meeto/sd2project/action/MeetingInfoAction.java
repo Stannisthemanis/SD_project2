@@ -30,7 +30,7 @@ public class MeetingInfoAction extends ActionSupport implements SessionAware {
 		String meetingInfo = getRmiBean().getMeetingResume(Integer.parseInt(this.id_meeting.split("-")[0]));
 		setData(meetingInfo);
 		System.out.println(this.id_meeting);
-		return SUCCESS;
+		return this.flag;
 	}
 	
 	public String getId_meeting() {
