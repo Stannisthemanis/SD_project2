@@ -101,5 +101,11 @@
 			<result name="upcuming">/upcumingMeetingInfo.jsp</result>
 		</action>
 
+		<action name="newActionItem" class="meeto.sd2project.action.NewActionItemAction"
+            method="execute">
+            <result name="login">Error.jsp</result>
+            <result name="success">Home.jsp</result>
+		 </action>
+
 	</package>
 </struts>
