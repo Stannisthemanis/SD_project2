@@ -30,7 +30,7 @@
             <li><a href='createMeeting.jsp'> Create meeting</a>
             <li class='active'><a href='#'> My Meetings</a>
                 <ul>
-                    <li><a href='#'>Past meetings</a></li>
+                    <li><a href='PastMeetings.jsp'>Past meetings</a></li>
                     <li><a href='CurrentMeetings.jsp'>Current meetings</a></li>
                     <li><a href='UpcomingMeetings.jsp'>Upcoming meetings</a></li>
                 </ul></li>
@@ -45,7 +45,7 @@
 
 
     <div align="center">
-        <h1>Past Meeting of user ${session.username}:</h1>
+        <h1>Current Meeting of user ${session.username}:</h1>
         <br> <br>
 
         <h2>
@@ -67,14 +67,15 @@
                     value="endDate" /></font>
         </h2>
         <h2>
-            Users that attended: <font color="red"><s:property
+            Users attending: <font color="red"><s:property
                     value="users" /></font>
         </h2>
         <h2>
             Agenda itens: <font color="red"><br> <c:forEach
                     items="${agendaItens}" var="agendaItens">
                     <c:out value="${agendaItens}" />
-                    <button>Check chat history</button>
+                    <button>Chat</button>
+                    <button>Add key Decision</button>
                     <br>
                 </c:forEach></font>
         </h2>
@@ -85,6 +86,8 @@
                     <br>
                 </c:forEach></font>
         </h2>
+        <br><br> <br>
+        <a href="CurrentMeetings.jsp"><font size="5">return</font></a>
     </div>
 </body>
 </html>

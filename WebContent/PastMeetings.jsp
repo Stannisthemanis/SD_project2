@@ -48,14 +48,13 @@
 	<div align="center">
 		<h1>Past Meetings of user ${session.username}:</h1>
 		<br> <br>
-		<p>Messages:</p>
+		<p>Past Meetings:</p>
 		<s:form action="meetingInfo" method="post">
 			<s:select list="#pastMeeting.meetingList" name="id_meeting"
 				size="30" style="width: 450px" />
 			<s:hidden name="flag" value="past" />
 			<s:submit value="Check this"></s:submit>
 		</s:form>
-		<div style="margin-left: 100px;" id="meetingDiv"></div>
 	</div>
 </body>
 </html>

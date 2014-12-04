@@ -228,8 +228,8 @@ public class RmiBean {
 			}
 		}
 	}
-
-	public String getTodoList(String username){
+	
+	public String getTodoList(String username) {
 		while (true) {
 			try {
 				return rmiServer.getListOfActionItensFromUser(username);
@@ -241,12 +241,29 @@ public class RmiBean {
 		}
 	}
 	
-	public boolean insertNewActionItem(int meetingSelected, String actionName, String userSelected){
+	public boolean insertNewActionItem(int meetingSelected, String actionName, String userSelected) {
 		while (true) {
 			try {
-				System.out.println("RmiBean: adding new action item: M-> "+meetingSelected+", U-> "+userSelected
-						+", A-> "+actionName);
-				return rmiServer.addActionItemToMeeting(1,actionName,userSelected);
+				System.out.println("RmiBean: adding new action item: M-> " + meetingSelected + ", U-> " + userSelected + ", A-> "
+						+ actionName);
+				return rmiServer.addActionItemToMeeting(1, actionName, userSelected);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+	
+	public boolean replyToInvite(int id_invite, String answer) {
+		System.out.println("aqui");
+		while (true) {
+			try {
+				if (answer.equalsIgnoreCase("yes")) {
+					return rmiServer.setReplyOfInvite(id_invite, true);
+				} else{
+					return rmiServer.setReplyOfInvite(id_invite, false);
+				}
 			} catch (RemoteException e) {
 				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
 				System.out.println("->> Server: trying to reconnect...");

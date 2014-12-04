@@ -44,65 +44,17 @@
 	</div>
 
 	<s:action name="currentMeetingList" var="currentMeeting" />
-	<s:action name="meetingInfo" id="meetingInfo">
-		<s:param name="id_meeting">1</s:param>
-	</s:action>
-	<s:property value="id_meeting" />
-	<div align="center">
-		<h1>Current Meetings of user ${session.username}:</h1>
-		<br> <br>
-		<div style="width: 1000px; float: left;">
-			<p>Messages:</p>
-			<s:select list="#currentMeeting.meetingList" name="meeting"
-				listKey="studentID" size="30" style="width: 450px" />
-		</div>
-		<div style="margin-left: 100px;">
-			<div align="left">
-				<br> <br>
-				<h2>
-					Meeting title: <font color="red"><s:property
-							value="#meetingInfo.title" /></font>
-				</h2>
-				<h2>
-					Meeting local: <font color="red"><s:property
-							value="#meetingInfo.local" /></font>
-				</h2>
-				<h2>
-					Meeting desired outcome: <font color="red"><s:property
-							value="#meetingInfo.outcome" /></font>
-				</h2>
-				<h2>
-					Meeting start date: <font color="red"><s:property
-							value="#meetingInfo.startDate" /></font>
-				</h2>
-				<h2>
-					Meeting end date: <font color="red"><s:property
-							value="#meetingInfo.endDate" /></font>
-				</h2>
-				<h2>
-					Users attending: <font color="red"><s:property
-							value="#meetingInfo.users" /></font>
-				</h2>
-				<h2>
-					Agenda itens: <font color="red"><br> <c:forEach
-							items="${meetingInfo.agendaItens}" var="agendaItens">
-							<c:out value="${agendaItens}" />
-							<button value="${agendaItens}">Chat</button>
-							<button value="${agendaItens}">Add key Decison</button>
-							<br>
-						</c:forEach></font>
-				</h2>
-				<h2>
-					Action itens: <font color="red"> <br>
-					<c:forEach items="${meetingInfo.actionItens}" var="actionItens">
-							<c:out value="${actionItens}" />
-							<br>
-						</c:forEach>
-					</font>
-					<button value="${actionItens}">Add Action Item</button>
-				</h2>
-			</div>
-		</div>
+
+    <div align="center">
+        <h1>Current Meetings of user ${session.username}:</h1>
+        <br> <br>
+        <p>Current Meetings:</p>
+        <s:form action="meetingInfo" method="post">
+            <s:select list="#currentMeeting.meetingList" name="id_meeting" size="30"
+                style="width: 450px" />
+            <s:hidden name="flag" value="current" />
+            <s:submit value="Check this"></s:submit>
+        </s:form>
 	</div>
 
 </body>

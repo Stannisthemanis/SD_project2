@@ -90,10 +90,19 @@
 
 		<action name="inviteInfo" class="meeto.sd2project.action.InvitesAction"
 			method="execute">
-			<result name="login">/index.jsp</result>
-			<result name="success">sucess.jsp</result>
+			<result name="success">/ReplyInvite.jsp</result>
 		</action>
 
+		<action name="acceptInvite" class="meeto.sd2project.action.InvitesAction"
+			method="accept">
+			<result name="success">/Messages.jsp</result>
+		</action>
+
+		<action name="declineInvite" class="meeto.sd2project.action.InvitesAction"
+            method="decline">
+            <result name="success">/Messages.jsp</result>
+        </action>
+		
 		<action name="meetingInfo" class="meeto.sd2project.action.MeetingInfoAction"
 			method="execute">
 			<result name="past">/pastMeetingInfo.jsp</result>
@@ -102,10 +111,10 @@
 		</action>
 
 		<action name="newActionItem" class="meeto.sd2project.action.NewActionItemAction"
-            method="execute">
-            <result name="login">Error.jsp</result>
-            <result name="success">Home.jsp</result>
-		 </action>
+			method="execute">
+			<result name="login">Error.jsp</result>
+			<result name="success">Home.jsp</result>
+		</action>
 
 	</package>
 </struts>

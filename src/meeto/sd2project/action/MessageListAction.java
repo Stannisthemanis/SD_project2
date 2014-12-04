@@ -18,9 +18,6 @@ public class MessageListAction extends ActionSupport implements SessionAware {
 	
 	public String execute(){
 		String username = (String) session.get("username");
-		if (username == null) {
-			return LOGIN;
-		}
 		String messages = getRmiBean().getMessagesList(username);
 		List<String> list = new ArrayList<String>();
 		for (int i = 0; i < messages.split("\n").length; i++) {

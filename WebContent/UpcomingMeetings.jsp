@@ -45,57 +45,17 @@
 
 
 	<s:action name="upcumingMeetingList" var="upcumingMeeting" />
-	<s:action name="meetingInfo" id="meetingInfo">
-		<s:param name="id_meeting">4</s:param>
-	</s:action>
 
 	<div align="center">
-		<h1>Upcuming Meetings of user ${session.username}:</h1>
+		<h1>Upcoming Meetings of user ${session.username}:</h1>
 		<br> <br>
-		<div style="width: 1000px; float: left;">
-			<p>Messages:</p>
-			<s:select list="#upcumingMeeting.meetingList" name="meeting"
-				size="35" style="width: 450px" />
-		</div>
-		<div style="margin-left: 100px;">
-			<div align="left">
-				<br> <br>
-				<h2>
-					Meeting title: <font color="red"><s:property
-							value="#meetingInfo.title" /></font>
-				</h2>
-				<h2>
-					Meeting local: <font color="red"><s:property
-							value="#meetingInfo.local" /></font>
-				</h2>
-				<h2>
-					Meeting desired outcome: <font color="red"><s:property
-							value="#meetingInfo.outcome" /></font>
-				</h2>
-				<h2>
-					Meeting start date: <font color="red"><s:property
-							value="#meetingInfo.startDate" /></font>
-				</h2>
-				<h2>
-					Meeting end date: <font color="red"><s:property
-							value="#meetingInfo.endDate" /></font>
-				</h2>
-				<h2>
-					Users attending: <font color="red"><s:property
-							value="#meetingInfo.users" /></font>
-				</h2>
-				<h2>
-					Agenda itens: <font color="red"><br>
-					<c:forEach items="${meetingInfo.agendaItens}" var="agendaItens">
-							<c:out value="${agendaItens}" />
-							<button value="${agendaItens}">Delete</button>
-							<button value="${agendaItens}">Modify</button>
-							<br>
-						</c:forEach></font>
-					<button value="${agendaItens}">Add Agenda Item</button>
-				</h2>
-			</div>
-		</div>
+		<p>UpcumingMeetings:</p>
+		<s:form action="meetingInfo" method="post">
+			<s:select list="#upcumingMeeting.meetingList" name="id_meeting"
+				size="30" style="width: 450px" />
+			<s:hidden name="flag" value="upcuming" />
+			<s:submit value="Check this"></s:submit>
+		</s:form>
 	</div>
 
 </body>

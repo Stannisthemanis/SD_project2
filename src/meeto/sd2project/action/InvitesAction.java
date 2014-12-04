@@ -15,7 +15,7 @@ public class InvitesAction extends ActionSupport implements SessionAware {
 	
 	private Map<String, Object>	session;
 	private static final long	serialVersionUID	= 1L;
-	private int					id_invite;
+	private String				id_invite;
 	private String				userResponsable;
 	private String				title;
 	private String				local;
@@ -24,22 +24,29 @@ public class InvitesAction extends ActionSupport implements SessionAware {
 	private String				endDate;
 	private String				users;
 	private String				agendaItens;
+	private String				answer;
 	
 	public String execute() {
-		String username = (String) session.get("username");
-		if (username == null) {
-			return LOGIN;
-		}
-		String inviteInfo = getRmiBean().getMessageInfo(this.id_invite);
+		String inviteInfo = getRmiBean().getMessageInfo(Integer.parseInt(this.id_invite.replace(" ", "").split("-")[0]));
 		setData(inviteInfo);
 		return SUCCESS;
 	}
 	
-	public int getId_invite() {
+	public String accept() {
+		System.out.println(getRmiBean().replyToInvite(Integer.parseInt(this.id_invite.replace(" ", "").split("-")[0]), "Yes"));
+		return SUCCESS;
+	}
+	
+	public String decline() {
+		getRmiBean().replyToInvite(Integer.parseInt(this.id_invite.replace(" ", "").split("-")[0]), "No");
+		return SUCCESS;
+	}
+	
+	public String getId_invite() {
 		return this.id_invite;
 	}
 	
-	public void setId_invite(int id_invite) {
+	public void setId_invite(String id_invite) {
 		this.id_invite = id_invite;
 	}
 	
@@ -136,5 +143,13 @@ public class InvitesAction extends ActionSupport implements SessionAware {
 		setEndDate(tokenizer[5]);
 		setUsers(tokenizer[6]);
 		setAgendaItens(tokenizer[7]);
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 }

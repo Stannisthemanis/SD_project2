@@ -30,7 +30,7 @@
 			<li><a href='createMeeting.jsp'> Create meeting</a>
 			<li class='active'><a href='#'> My Meetings</a>
 				<ul>
-					<li><a href='#'>Past meetings</a></li>
+					<li><a href='PastMeetings.jsp'>Past meetings</a></li>
 					<li><a href='CurrentMeetings.jsp'>Current meetings</a></li>
 					<li><a href='UpcomingMeetings.jsp'>Upcoming meetings</a></li>
 				</ul></li>
@@ -85,6 +85,8 @@
 					<br>
 				</c:forEach></font>
 		</h2>
+		<br><br> <br>
+		<a href="PastMeetings.jsp"><font size="5">voltar</font></a>
 	</div>
 </body>
 </html>

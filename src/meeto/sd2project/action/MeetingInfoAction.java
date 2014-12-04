@@ -26,8 +26,8 @@ public class MeetingInfoAction extends ActionSupport implements SessionAware {
 	private List<String>		actionItens;
 	
 	public String execute() {
-		System.out.println(this.flag + " ++++ " + this.id_meeting);
-		String meetingInfo = getRmiBean().getMeetingResume(Integer.parseInt(this.id_meeting.split("-")[0]));
+		System.out.println(this.flag + " ++++ " + this.id_meeting.replace(" ", ""));
+		String meetingInfo = getRmiBean().getMeetingResume(Integer.parseInt(this.id_meeting.replace(" ", "").split("-")[0]));
 		setData(meetingInfo);
 		System.out.println(this.id_meeting);
 		return this.flag;
