@@ -50,7 +50,7 @@
 
 	<script type="text/javascript">
 		function getMeetingInfo(id_meeting) {
-			
+			alert(id_meeting);
 		}
 	</script>
 
