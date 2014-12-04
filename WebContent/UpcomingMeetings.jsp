@@ -15,11 +15,11 @@
 <script src="script.js"></script>
 <title>Meeto: Collaboration and Social Networking</title>
 </head>
-	<c:choose>
-		<c:when test="${session.username == null}">
-			<c:redirect url="index.jsp"/>
-		</c:when>
-	</c:choose>
+<c:choose>
+	<c:when test="${session.username == null}">
+		<c:redirect url="index.jsp" />
+	</c:when>
+</c:choose>
 <body bgcolor="#99ffff">
 
 	<div id='cssmenu'>
@@ -45,7 +45,9 @@
 
 
 	<s:action name="upcumingMeetingList" var="upcumingMeeting" />
-	<s:action name="meetingInfo" var="meetingInfo" />
+	<s:action name="meetingInfo" id="meetingInfo">
+		<s:param name="id_meeting">4</s:param>
+	</s:action>
 
 	<div align="center">
 		<h1>Upcuming Meetings of user ${session.username}:</h1>
@@ -53,7 +55,7 @@
 		<div style="width: 1000px; float: left;">
 			<p>Messages:</p>
 			<s:select list="#upcumingMeeting.meetingList" name="meeting"
-				size="20" style="width: 450px" />
+				size="35" style="width: 450px" />
 		</div>
 		<div style="margin-left: 100px;">
 			<div align="left">
@@ -83,8 +85,14 @@
 							value="#meetingInfo.users" /></font>
 				</h2>
 				<h2>
-					Agenda itens: <font color="red"><s:property
-							value="#meetingInfo.agendaItens" /></font>
+					Agenda itens: <font color="red"><br>
+					<c:forEach items="${meetingInfo.agendaItens}" var="agendaItens">
+							<c:out value="${agendaItens}" />
+							<button value="${agendaItens}">Delete</button>
+							<button value="${agendaItens}">Modify</button>
+							<br>
+						</c:forEach></font>
+					<button value="${agendaItens}">Add Agenda Item</button>
 				</h2>
 			</div>
 		</div>

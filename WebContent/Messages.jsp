@@ -16,11 +16,11 @@
 <script src="script.js"></script>
 <title>Meeto: Collaboration and Social Networking</title>
 </head>
-	<c:choose>
-		<c:when test="${session.username == null}">
-			<c:redirect url="index.jsp"/>
-		</c:when>
-	</c:choose>
+<c:choose>
+	<c:when test="${session.username == null}">
+		<c:redirect url="index.jsp" />
+	</c:when>
+</c:choose>
 <body bgcolor="#99ffff">
 
 	<div id='cssmenu'>
@@ -44,45 +44,56 @@
 	</div>
 	<s:action name="messageList" var="messages" />
 	<s:action name="inviteInfo" var="inviteInfo">
-	   <s:param name="id_invite">1</s:param>
+		<s:param name="id_invite">1</s:param>
 	</s:action>
 	<div align="center">
 		<h1>Messages of user ${session.username}:</h1>
 		<br> <br>
 		<div style="width: 1000px; float: left;">
 			<p>Messages:</p>
-			<s:select list="#messages.messageList" name="message" size="20"
+			<s:select list="#messages.messageList" name="message" size="35"
 				style="width: 450px" />
 		</div>
 		<div style="margin-left: 100px;">
 			<div align="left">
 				<br> <br>
 				<h2>
-                    Invited by: <font color = "red"><s:property value="#inviteInfo.userResponsable" /></font>
-                </h2>
-                <h2>
-                    Meeting title: <font color = "red"><s:property value="#inviteInfo.title" /></font>
-                </h2>
-                <h2>
-                    Meeting local: <font color = "red"><s:property value="#inviteInfo.local" /></font>
-                </h2>
-                <h2>
-                    Meeting desired outcome: <font color = "red"><s:property
-                            value="#inviteInfo.outcome" /></font>
-                </h2>
-                <h2>
-                    Meeting start date: <font color = "red"><s:property
-                            value="#inviteInfo.startDate" /></font>
-                </h2>
-                <h2>
-                    Meeting end date: <font color = "red"><s:property value="#inviteInfo.endDate" /></font>
-                </h2>
-                <h2>
-                    Users attending: <font color = "red"><s:property value="#inviteInfo.users" /></font>
-                </h2>
-                <h2>
-                    Agenda itens: <font color = "red"><s:property value="#inviteInfo.agendaItens" /></font>
-                </h2>
+					Invited by: <font color="red"><s:property
+							value="#inviteInfo.userResponsable" /></font>
+				</h2>
+				<h2>
+					Meeting title: <font color="red"><s:property
+							value="#inviteInfo.title" /></font>
+				</h2>
+				<h2>
+					Meeting local: <font color="red"><s:property
+							value="#inviteInfo.local" /></font>
+				</h2>
+				<h2>
+					Meeting desired outcome: <font color="red"><s:property
+							value="#inviteInfo.outcome" /></font>
+				</h2>
+				<h2>
+					Meeting start date: <font color="red"><s:property
+							value="#inviteInfo.startDate" /></font>
+				</h2>
+				<h2>
+					Meeting end date: <font color="red"><s:property
+							value="#inviteInfo.endDate" /></font>
+				</h2>
+				<h2>
+					Users attending: <font color="red"><s:property
+							value="#inviteInfo.users" /></font>
+				</h2>
+				<h2>
+					Agenda itens: <font color="red"><br> <c:forEach
+							items="${meetingInfo.agendaItens}" var="agendaItens">
+							<c:out value="${agendaItens}" />
+							<br>
+						</c:forEach></font>
+				</h2>
+				<button value="Yes">Accept</button>
+				<button value="No">Decline</button>
 			</div>
 		</div>
 	</div>

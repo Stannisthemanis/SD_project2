@@ -32,7 +32,6 @@
 					<li><a href='CurrentMeetings.jsp'>Current meetings</a></li>
 					<li><a href='UpcomingMeetings'>Upcoming meetings</a></li>
 				</ul></li>
-
 			<li><a href='Messages.jsp'>Messages</a></li>
 			<li><a href='TodoList.jsp'>TODO</a></li>
 			<li><a href='OnlineUsers.jsp'>Online users</a></li>

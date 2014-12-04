@@ -47,8 +47,6 @@
    <li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 </ul>
 </div>
-
-todo list under construction...
-
+<h1>TODO LIST:</h1>
 </body>
 </html>

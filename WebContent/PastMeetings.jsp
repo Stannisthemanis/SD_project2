@@ -16,11 +16,11 @@
 <script src="script.js"></script>
 <title>Meeto: Collaboration and Social Networking</title>
 </head>
-	<c:choose>
-		<c:when test="${session.username == null}">
-			<c:redirect url="index.jsp"/>
-		</c:when>
-	</c:choose>
+<c:choose>
+	<c:when test="${session.username == null}">
+		<c:redirect url="index.jsp" />
+	</c:when>
+</c:choose>
 <body bgcolor="#99ffff">
 
 	<div id='cssmenu'>
@@ -44,61 +44,18 @@
 	</div>
 
 	<s:action name="pastMeetingList" var="pastMeeting" />
-	<s:action name="meetingInfo" var="meetingInfo">
-		<s:param name="id_meeting">1</s:param>
-	</s:action>
-
-	<script type="text/javascript">
-		function getMeetingInfo(id_meeting) {
-			alert(id_meeting);
-		}
-	</script>
 
 	<div align="center">
 		<h1>Past Meetings of user ${session.username}:</h1>
 		<br> <br>
-		<div style="width: 1000px; float: left;">
-			<p>Messages:</p>
-			<s:select list="#pastMeeting.meetingList" name="meeting" size="20"
-				style="width: 450px" onclick="getMeetingInfo(this.value)" />
-		</div>
-		<div style="margin-left: 100px;">
-			<div align="left">
-				<br> <br>
-				<h2>
-					Meeting title: <font color="red"><s:property
-							value="#meetingInfo.title" /></font>
-				</h2>
-				<h2>
-					Meeting local: <font color="red"><s:property
-							value="#meetingInfo.local" /></font>
-				</h2>
-				<h2>
-					Meeting desired outcome: <font color="red"><s:property
-							value="#meetingInfo.outcome" /></font>
-				</h2>
-				<h2>
-					Meeting start date: <font color="red"><s:property
-							value="#meetingInfo.startDate" /></font>
-				</h2>
-				<h2>
-					Meeting end date: <font color="red"><s:property
-							value="#meetingInfo.endDate" /></font>
-				</h2>
-				<h2>
-					Users that attended: <font color="red"><s:property
-							value="#meetingInfo.users" /></font>
-				</h2>
-				<h2>
-					Agenda itens: <font color="red"><s:property
-							value="#meetingInfo.agendaItens" /></font>
-				</h2>
-				<h2>
-					Action itens: <font color="red"><s:property
-							value="#meetingInfo.actionItens" /></font>
-				</h2>
-			</div>
-		</div>
+		<p>Messages:</p>
+		<s:form action="meetingInfo" method="post">
+			<s:select list="#pastMeeting.meetingList" name="id_meeting"
+				size="30" style="width: 450px" />
+			<s:hidden name="flag" value="past" />
+			<s:submit value="Check this"></s:submit>
+		</s:form>
+		<div style="margin-left: 100px;" id="meetingDiv"></div>
 	</div>
 </body>
 </html>

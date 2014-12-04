@@ -65,40 +65,39 @@
 			<result name="login">/index.jsp</result>
 			<result name="success">sucess.jsp</result>
 		</action>
-		
+
 		<action name="pastMeetingList" class="meeto.sd2project.action.PastMeetingListAction"
-            method="execute">
-            <result name="login">/index.jsp</result>
-            <result name="success">sucess.jsp</result>
-        </action>
-        
+			method="execute">
+			<result name="login">/index.jsp</result>
+			<result name="success">sucess.jsp</result>
+		</action>
+
 		<action name="currentMeetingList" class="meeto.sd2project.action.CurrentMeetingListAction"
-            method="execute">
-            <result name="login">/index.jsp</result>
-            <result name="success">sucess.jsp</result>
-        </action>
-        
-		<action name="upcumingMeetingList" class="meeto.sd2project.action.UpcumingMeetingListAction"
-            method="execute">
-            <result name="login">/index.jsp</result>
-            <result name="success">sucess.jsp</result>
-        </action>
-        
-        <action name="getInfoMeeting" class="meeto.sd2project.action.UpcumingMeetingListAction"
-            method="getMeetingInfo">
-		 </action>
-		 
+			method="execute">
+			<result name="login">/index.jsp</result>
+			<result name="success">sucess.jsp</result>
+		</action>
+
+		<action name="upcumingMeetingList"
+			class="meeto.sd2project.action.UpcumingMeetingListAction" method="execute">
+			<result name="login">/index.jsp</result>
+			<result name="success">sucess.jsp</result>
+		</action>
+
+		<action name="getInfoMeeting"
+			class="meeto.sd2project.action.UpcumingMeetingListAction" method="getMeetingInfo">
+		</action>
+
 		<action name="inviteInfo" class="meeto.sd2project.action.InvitesAction"
-            method="execute">
-            <result name="login">/index.jsp</result>
-            <result name="success">sucess.jsp</result>
-        </action>
-        
+			method="execute">
+			<result name="login">/index.jsp</result>
+			<result name="success">sucess.jsp</result>
+		</action>
+
 		<action name="meetingInfo" class="meeto.sd2project.action.MeetingInfoAction"
-            method="execute">
-            <result name="login">/index.jsp</result>
-            <result name="success">sucess.jsp</result>
-        </action>
-                
+			method="execute">
+			<result name="success">/pastMeetingInfo.jsp</result>
+		</action>
+
 	</package>
 </struts>

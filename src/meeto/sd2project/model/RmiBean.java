@@ -228,4 +228,16 @@ public class RmiBean {
 			}
 		}
 	}
+
+	public String getTodoList(String username){
+		while (true) {
+			try {
+				return rmiServer.getListOfActionItensFromUser(username);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 }

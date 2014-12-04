@@ -1,5 +1,6 @@
 package meeto.sd2project.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,31 +14,33 @@ public class MeetingInfoAction extends ActionSupport implements SessionAware {
 	
 	private Map<String, Object>	session;
 	private static final long	serialVersionUID	= 1L;
-	private int					id_meeting;
+	private String				id_meeting;
 	private String				title;
 	private String				local;
 	private String				outcome;
 	private String				startDate;
 	private String				endDate;
 	private String				users;
+	private String				flag;
 	private List<String>		agendaItens;
 	private List<String>		actionItens;
 	
 	public String execute() {
-		String meetingInfo = getRmiBean().getMeetingResume(this.id_meeting);
+		System.out.println(this.flag + " ++++ " + this.id_meeting);
+		String meetingInfo = getRmiBean().getMeetingResume(Integer.parseInt(this.id_meeting.split("-")[0]));
 		setData(meetingInfo);
+		System.out.println(this.id_meeting);
 		return SUCCESS;
 	}
 	
-	public int getId_meeting() {
+	public String getId_meeting() {
 		return this.id_meeting;
 	}
-	
-	public void setId_meeting(int id_meeting) {
-		System.out.println(id_meeting);
+
+	public void setId_meeting(String id_meeting) {
 		this.id_meeting = id_meeting;
 	}
-	
+
 	public String getTitle() {
 		return this.title;
 	}
@@ -86,7 +89,6 @@ public class MeetingInfoAction extends ActionSupport implements SessionAware {
 		this.users = users;
 	}
 	
-	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -105,35 +107,49 @@ public class MeetingInfoAction extends ActionSupport implements SessionAware {
 	
 	public void setData(String meetingInfo) {
 		String[] tokenizer = meetingInfo.split(",");
-//		for (String i : tokenizer) {
-//			System.out.println(i);
-//		}
+		// for (String i : tokenizer) {
+		// System.out.println(i);
+		// }
 		setTitle(tokenizer[0]);
 		setOutcome(tokenizer[2]);
 		setLocal(tokenizer[3]);
 		setStartDate(tokenizer[4]);
 		setEndDate(tokenizer[5]);
 		setUsers(tokenizer[6]);
-		for(String i: tokenizer[7].split("\n")){
-			System.out.println("- " + i);
+		List<String> agendaList = new ArrayList<String>();
+		for (String i : tokenizer[7].split("\n")) {
+			agendaList.add(i);
 		}
+		setAgendaItens(agendaList);
+		List<String> actionList = new ArrayList<String>();
+		for (String i : tokenizer[8].split("\n")) {
+			actionList.add(i);
+		}
+		setActionItens(actionList);
 	}
-
 	
 	public List<String> getAgendaItens() {
 		return agendaItens;
 	}
-
+	
 	public void setAgendaItens(List<String> agendaItens) {
 		this.agendaItens = agendaItens;
 	}
-
+	
 	public List<String> getActionItens() {
 		return actionItens;
 	}
-
+	
 	public void setActionItens(List<String> actionItens) {
 		this.actionItens = actionItens;
+	}
+	
+	public String getFlag() {
+		return flag;
+	}
+	
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 	
 }
