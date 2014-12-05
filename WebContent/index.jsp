@@ -19,12 +19,7 @@
 			<s:submit value="Log in" align="center" />
 		</s:form>
 		<br> <br> <a href="register.jsp"> Click here to register
-		</a> <br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br>   
+		</a>
 		<!--  
 	<form action="login" method="post" name="formLogin">
 		Username: <input type="text" name="username"> <br><br>

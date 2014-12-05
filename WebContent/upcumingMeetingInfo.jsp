@@ -42,10 +42,28 @@
 			<li><a href='LogOut.jsp'>Logout (${session.username})</a></li>
 		</ul>
 	</div>
+	<script type="text/javascript">
+		function deleteAgenda(id) {
+			var id_agenda_item = id.split(":")[0];
+		    window.location = "/SD_project2/agendaItemManager.action?operation=0&id_agenda_item=" + id_agenda_item;
+		}
+		
+		function modifyAgenda(id) {
+            var id_agenda_item = id.split(":")[0];
+            var newTitle = window.prompt("New title to agenda item", "new agenda item title");
+            window.location = "/SD_project2/agendaItemManager.action?operation=1&id_agenda_item=" + id_agenda_item + "&info=" + newTitle;
+        }
+		
+		function addAgenda(id) {
+            var id_meeting = id.split("-")[0];
+            var newAgenda = window.prompt("New agenda item title", "new agenda item");
+            window.location = "/SD_project2/agendaItemManager.action?operation=2&id_meeting=" + id_meeting + "&info=" + newAgenda;
+        }
+	</script>
 
 
-	<div align="center">
-		<h1>upcuming Meeting of user ${session.username}:</h1>
+	<div align="left">
+		<h1>Upcuming Meeting of user ${session.username}:</h1>
 		<br> <br>
 
 		<h2>
@@ -74,11 +92,13 @@
 			Agenda itens: <font color="red"><br> <c:forEach
 					items="${agendaItens}" var="agendaItens">
 					<c:out value="${agendaItens}" />
-					<button>Delete</button>
-					<button>Modify</button>
+					<c:if test='${agendaItens.split(":")[1] != " Any Other Business"}'>
+					<button value="${agendaItens}" onclick="deleteAgenda(this.value)">Delete</button>
+					<button value="${agendaItens}" onclick="modifyAgenda(this.value)">Modify</button>
+					</c:if>
 					<br>
 				</c:forEach></font>
-			<button>Add key decision</button>
+			<button value="${id_meeting}" onclick="addAgenda(this.value)">Add new</button>
 		</h2>
 		<h2>
 			Action itens: <font color="red"> <br> <c:forEach
@@ -87,8 +107,8 @@
 					<br>
 				</c:forEach></font>
 		</h2>
-		<br>
-		<br> <br> <a href="UpcomingMeetings.jsp"><font size="5">voltar</font></a>
+		<br> <br> <br> <a href="UpcomingMeetings.jsp"><font
+			size="5">voltar</font></a>
 	</div>
 </body>
 </html>

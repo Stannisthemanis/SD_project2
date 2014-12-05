@@ -271,4 +271,65 @@ public class RmiBean {
 			}
 		}
 	}
+
+	public boolean deleteAgendaItem(int id_agenda_item){
+		while (true) {
+			try {
+				return rmiServer.removeAgendaItemFromMeeting(id_agenda_item);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+
+	public boolean addAgendaItem(int id_meeting, String newItem){
+		while (true) {
+			try {
+				return rmiServer.addAgendaItemToMeeting(id_meeting, newItem);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+
+	public boolean modifyAgendaItem(int id_agenda_item, String newAgendaItem){
+		while (true) {
+			try {
+				return rmiServer.modifyTitleAgendaItem(id_agenda_item, newAgendaItem);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+
+	public boolean addActionItem(int id_meeting, String newAction, String user){
+		while (true) {
+			try {
+				return rmiServer.addActionItemToMeeting(id_meeting, newAction, user);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+
+	public boolean addKeyDecision(int id_agenda_item, String newKeyDecision){
+		while (true) {
+			try {
+				return rmiServer.addKeyDecisionToAgendaItem(id_agenda_item, newKeyDecision);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+
 }

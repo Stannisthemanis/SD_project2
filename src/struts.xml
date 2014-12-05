@@ -97,7 +97,7 @@
 			method="execute">
 			<result name="success">/Messages.jsp</result>
 		</action>
-		
+
 		<action name="meetingInfo" class="meeto.sd2project.action.MeetingInfoAction"
 			method="execute">
 			<result name="past">/pastMeetingInfo.jsp</result>
@@ -109,6 +109,12 @@
 			method="execute">
 			<result name="login">Error.jsp</result>
 			<result name="success">Home.jsp</result>
+		</action>
+
+		<action name="agendaItemManager" class="meeto.sd2project.action.AgendaItemAction"
+			method="execute">
+			<result name="upcuming">/UpcomingMeetings.jsp</result>
+			<result name="current">/CurrentMeetings.jsp</result>
 		</action>
 
 	</package>
