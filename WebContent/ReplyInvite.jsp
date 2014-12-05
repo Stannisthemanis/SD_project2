@@ -44,14 +44,16 @@
 	</div>
 
 	<script type="text/javascript">
-		function accept(id_invite) {
-			window.alert(id_invite);
-			var id = id_invite.split("-")[0];
-			window.location = "/SD_project2/replyInvite.action?answer=yes&id_invite=" + id;
+		function accept(id) {
+			var id_invite = id.split("-")[0];
+			window.location = "/SD_project2/replyInvite.action?answer=yes&id_invite="
+					+ id_invite;
 		}
 
 		function decline() {
-		    window.location = "/SD_project2/replyInvite.action=answer=no";
+			var id_invite = id.split("-")[0];
+			window.location = "/SD_project2/replyInvite.action=answer=no&id_invite="
+					+ id_invite;
 		}
 	</script>
 
@@ -91,7 +93,7 @@
 				</c:forEach></font>
 		</h2>
 		<br> <br> <br>
-		<button onclick="accept(${id_invite})">Accept</button>
+		<button onclick="accept(this.value)" value="${id_invite}">Accept</button>
 		<button onclick="decline()">Decline</button>
 		<a href="Messages.jsp"><font size="5">return</font></a>
 	</div>
