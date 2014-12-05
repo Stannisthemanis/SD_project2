@@ -62,7 +62,7 @@
 	</script>
 
 
-	<div align="left">
+	<div align="center">
 		<h1>Upcuming Meeting of user ${session.username}:</h1>
 		<br> <br>
 

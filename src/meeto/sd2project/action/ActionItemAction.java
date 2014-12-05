@@ -16,8 +16,7 @@ public class ActionItemAction extends ActionSupport implements SessionAware {
 	private String				user				= null;
 	private String				id_meeting;
 	private int					operation;					// 0-add new 1-set
-	private int					id_action_item;
-	
+	private String				id_action_item;
 	
 	public String execute() {
 		System.out.println(this.operation);
@@ -28,25 +27,25 @@ public class ActionItemAction extends ActionSupport implements SessionAware {
 			this.getRmiBean().addActionItem(Integer.parseInt(id_meeting.split("-")[0]), actionName, user);
 			return "new";
 		} else {
-			this.getRmiBean().setActionAsDone(id_action_item);
+			this.getRmiBean().setActionAsDone(Integer.parseInt(id_action_item.split("-")[0]));
 			return "setdone";
 		}
 	}
 	
+	public String getId_action_item() {
+		return this.id_action_item;
+	}
+
+	public void setId_action_item(String id_action_item) {
+		this.id_action_item = id_action_item;
+	}
+
 	public String getId_meeting() {
 		return this.id_meeting;
 	}
-
+	
 	public void setId_meeting(String id_meeting) {
 		this.id_meeting = id_meeting;
-	}
-	
-	public int getId_action_item() {
-		return this.id_action_item;
-	}
-	
-	public void setId_action_item(int id_action_item) {
-		this.id_action_item = id_action_item;
 	}
 	
 	public String getActionName() {

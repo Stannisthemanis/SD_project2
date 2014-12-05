@@ -15,9 +15,14 @@ public class TodoAction extends ActionSupport implements SessionAware {
 	private static final long	serialVersionUID	= 1L;
 	private List<String> todoList;
 	
-	
 	public String execute(){
 		List<String> list = new ArrayList<String>();
+		String username = (String) session.get("username");
+		String todo = getRmiBean().getTodoList(username);
+		for (String s : todo.split("\n")) {
+			list.add(s);
+		}
+		setTodoList(list);
 		return SUCCESS;
 	}
 	
