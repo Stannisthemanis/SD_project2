@@ -115,6 +115,7 @@
 			method="execute">
 			<result name="upcuming">/UpcomingMeetings.jsp</result>
 			<result name="current">/CurrentMeetings.jsp</result>
+			<result name="chat">/Chat.jsp</result>
 		</action>
 
 		<action name="getAllUsers" class="meeto.sd2project.action.OtherUsersAction"

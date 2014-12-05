@@ -1,5 +1,7 @@
 package meeto.sd2project.action;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import meeto.sd2project.model.RmiBean;
@@ -16,7 +18,7 @@ public class AgendaItemAction extends ActionSupport implements SessionAware {
 	private int id_agenda_item;
 	private int id_meeting;
 	private String info;
-	
+	private List<String> chatHistory;
 	
 	public String execute(){
 		if (operation == 0) {
@@ -25,9 +27,17 @@ public class AgendaItemAction extends ActionSupport implements SessionAware {
 			getRmiBean().modifyAgendaItem(id_agenda_item, info);
 		}else if(operation == 2){
 			getRmiBean().addAgendaItem(id_meeting, info);
-		}else{
+		}else if(operation==3){
 			System.out.println(getRmiBean().addKeyDecision(id_agenda_item, info));
 			return "current";
+		}else{
+			String result=getRmiBean().getChatHistory(id_agenda_item);
+			List<String> aux = new ArrayList<String>();
+			for (String s : result.split("\n")) {
+				aux.add(s);
+			}
+			setChatHistory(aux);
+			return "chat";
 		}
 		return "upcuming";
 	}
@@ -78,6 +88,14 @@ public class AgendaItemAction extends ActionSupport implements SessionAware {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	public List<String> getChatHistory() {
+		return chatHistory;
+	}
+
+	public void setChatHistory(List<String> chatHistory) {
+		this.chatHistory = chatHistory;
 	}
 	
 }

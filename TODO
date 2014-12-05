@@ -3,13 +3,10 @@ MODEL:
 
 
 VIEW:
-- mensagens de sucesso a inserir usr ou meeting
-- ver checklist infor
-- melhorar UI + fazer css / alterar fontes
-- melhorar UI do display das meetings
 
 
 CONTROLER:
+- invitar users
 
 OTHER:
 - meter os websockets a bombar

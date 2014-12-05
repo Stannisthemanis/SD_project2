@@ -20,7 +20,6 @@ public class RmiBean {
 		boolean connected = false;
 		int i = 0;
 		while (connected == false) {
-			i = (i + 1) % 3;
 			try {
 				this.rmiServer = (RMIServerInterface) Naming.lookup("rmi://" + rmiHost[i] + ":1099/server");
 				connected = true;
@@ -34,6 +33,7 @@ public class RmiBean {
 				System.out.println("->> REMOTE Server: Registing to rmiServer " + e.getMessage());
 				connected = false;
 			}
+			i = (i + 1) % 3;
 		}
 		System.out.println("->> Server: Connection to RmiServer ok...");
 	}
@@ -336,6 +336,21 @@ public class RmiBean {
 		while (true) {
 			try {
 				return rmiServer.setActionAsCompleted(id_action_item);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+	
+	public String getChatHistory(int id_agenda_item){
+		while (true) {
+			try {
+				System.out.println("RMIBEAN 1 ");
+				String result = rmiServer.getChatHistoryFromAgendaItem(id_agenda_item);
+				System.out.println("RMIBEAN result= "+result);
+				return result;
 			} catch (RemoteException e) {
 				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
 				System.out.println("->> Server: trying to reconnect...");

@@ -50,6 +50,13 @@
 			window.location = "/SD_project2/agendaItemManager.action?operation=3&id_agenda_item="
 					+ id_agenda_item + "&info=" + newKey;
 		}
+		
+		function chat(id){
+			var id_agenda_item = id.split(":")[0];
+			window.location = "/SD_project2/agendaItemManager.action?operation=4&id_agenda_item="
+					+ id_agenda_item;
+		}
+		
 	</script>
 
 	<s:action name="getAllUsers" var="allUsers" />
@@ -83,7 +90,7 @@
 			Agenda itens: <font color="red"><br> <c:forEach
 					items="${agendaItens}" var="agendaItens">
 					<c:out value="${agendaItens}" />
-					<button>Chat</button>
+					<button value="${agendaItens}" onclick="chat(this.value)">Chat</button>
 					<button value="${agendaItens}" onclick="addKeyDecision(this.value)">Add
 						key Decision</button>
 					<br>
