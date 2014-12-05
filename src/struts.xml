@@ -105,10 +105,10 @@
 			<result name="upcuming">/upcumingMeetingInfo.jsp</result>
 		</action>
 
-		<action name="newActionItem" class="meeto.sd2project.action.NewActionItemAction"
+		<action name="actionItemManager" class="meeto.sd2project.action.ActionItemAction"
 			method="execute">
-			<result name="login">Error.jsp</result>
-			<result name="success">Home.jsp</result>
+			<result name="new">/CurrentMeetings.jsp</result>
+			<result name="setdone">/Home.jsp</result>
 		</action>
 
 		<action name="agendaItemManager" class="meeto.sd2project.action.AgendaItemAction"
@@ -117,5 +117,8 @@
 			<result name="current">/CurrentMeetings.jsp</result>
 		</action>
 
+		<action name="getAllUsers" class="meeto.sd2project.action.OtherUsersAction"
+            method="getAllUsers">
+         </action>
 	</package>
 </struts>

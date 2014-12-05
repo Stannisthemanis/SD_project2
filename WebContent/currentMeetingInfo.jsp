@@ -47,9 +47,12 @@
 		function addKeyDecision(id) {
 			var id_agenda_item = id.split(":")[0];
 			var newKey = window.prompt("New key decision", "new key decision");
-            window.location = "/SD_project2/agendaItemManager.action?operation=3&id_agenda_item=" + id_agenda_item + "&info=" + newKey;
+			window.location = "/SD_project2/agendaItemManager.action?operation=3&id_agenda_item="
+					+ id_agenda_item + "&info=" + newKey;
 		}
 	</script>
+
+	<s:action name="getAllUsers" var="allUsers" />
 
 	<div align="center">
 		<h1>Current Meeting of user ${session.username}:</h1>
@@ -81,7 +84,8 @@
 					items="${agendaItens}" var="agendaItens">
 					<c:out value="${agendaItens}" />
 					<button>Chat</button>
-					<button value="${agendaItens}" onclick="addKeyDecision(this.value)">Add key Decision</button>
+					<button value="${agendaItens}" onclick="addKeyDecision(this.value)">Add
+						key Decision</button>
 					<br>
 				</c:forEach></font>
 		</h2>
@@ -92,8 +96,17 @@
 					<br>
 				</c:forEach></font>
 		</h2>
-		<br>
-		<br> <br> <a href="CurrentMeetings.jsp"><font size="5">return</font></a>
+
+		<s:form action="actionItemManager">
+			<s:hidden name="id_meeting" value="%{id_meeting}" />
+			<s:hidden name="operation" value="0" />
+			<s:textfield label="New action" name="actionName" />
+			<s:radio label="Users to invite" list="#allUsers.usersList"
+				name="user" />
+			<s:submit value="Add new action" align="center" />
+		</s:form>
+		<br> <br> <br> <a href="CurrentMeetings.jsp"><font
+			size="5">return</font></a>
 	</div>
 </body>
 </html>

@@ -31,6 +31,18 @@ public class OtherUsersAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 	
+	
+	public String getAllUsers(){
+		String users = getRmiBean().getListOtherUsers("");
+		List<String> list = new ArrayList<String>();
+		for (int i = 0; i < users.split("\n").length; i++) {
+			list.add(users.split("\n")[i]);
+		}
+		setUsersList(list);
+		return SUCCESS;
+	}
+	
+	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

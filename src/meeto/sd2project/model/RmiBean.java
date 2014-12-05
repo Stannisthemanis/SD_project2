@@ -331,5 +331,17 @@ public class RmiBean {
 			}
 		}
 	}
+	
+	public boolean setActionAsDone(int id_action_item){
+		while (true) {
+			try {
+				return rmiServer.setActionAsCompleted(id_action_item);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 
 }
