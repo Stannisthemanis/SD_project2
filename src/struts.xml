@@ -93,15 +93,10 @@
 			<result name="success">/ReplyInvite.jsp</result>
 		</action>
 
-		<action name="acceptInvite" class="meeto.sd2project.action.InvitesAction"
-			method="accept">
+		<action name="replyInvite" class="meeto.sd2project.action.ReplyAction"
+			method="execute">
 			<result name="success">/Messages.jsp</result>
 		</action>
-
-		<action name="declineInvite" class="meeto.sd2project.action.InvitesAction"
-            method="decline">
-            <result name="success">/Messages.jsp</result>
-        </action>
 		
 		<action name="meetingInfo" class="meeto.sd2project.action.MeetingInfoAction"
 			method="execute">

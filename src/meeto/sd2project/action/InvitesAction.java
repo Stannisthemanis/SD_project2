@@ -24,21 +24,10 @@ public class InvitesAction extends ActionSupport implements SessionAware {
 	private String				endDate;
 	private String				users;
 	private String				agendaItens;
-	private String				answer;
 	
 	public String execute() {
 		String inviteInfo = getRmiBean().getMessageInfo(Integer.parseInt(this.id_invite.replace(" ", "").split("-")[0]));
 		setData(inviteInfo);
-		return SUCCESS;
-	}
-	
-	public String accept() {
-		System.out.println(getRmiBean().replyToInvite(Integer.parseInt(this.id_invite.replace(" ", "").split("-")[0]), "Yes"));
-		return SUCCESS;
-	}
-	
-	public String decline() {
-		getRmiBean().replyToInvite(Integer.parseInt(this.id_invite.replace(" ", "").split("-")[0]), "No");
 		return SUCCESS;
 	}
 	
@@ -145,11 +134,4 @@ public class InvitesAction extends ActionSupport implements SessionAware {
 		setAgendaItens(tokenizer[7]);
 	}
 
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
 }
