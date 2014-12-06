@@ -1,11 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!doctype html>
-<html lang=''>
+<html>
 
-<script type="text/javascript">
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+   <title>Meeto: Collaboration and Social Networking</title>
+   
+   <script type="text/javascript">
 
         var websocket;
 
@@ -15,20 +21,26 @@
         }
 
         function initialize() { // URI = ws://10.16.0.165:8080/chat/chat~
+          //  window.alert("into connect. "+ 'ws://' + window.location.host + '/SD_project2/chat');
             connect('ws://' + window.location.host + '/SD_project2/chat');
         }
 
         function connect(host) { // connect to the host websocket servlet
+           	/*window.alert('a');
+            alert("'WebSocket' in window-> "+ 'WebSocket' in window);
+           	windw.alert('c');
+            alert("'MozWebSocket' in window-> "+ 'MozWebSocket' in window)*/
             if ('WebSocket' in window){
                 websocket = new WebSocket(host);
             }
-            else if ('MozWebSocket' in window)
+            else if ('MozWebSocket' in window){
                 websocket = new MozWebSocket(host);
+            }
             else {
                 writeToHistory('Get a real browser which supports WebSocket.');
                 return;
-            }
-
+            }       
+                        
             websocket.onopen    = onOpen; // set the event listeners below
             websocket.onclose   = onClose;
             websocket.onmessage = onMessage;
@@ -78,16 +90,13 @@
         }
 
     </script>
-
-<head>
-   <meta charset='utf-8'>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="styles.css">
-   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="script.js"></script>
-   <title>Meeto: Collaboration and Social Networking</title>
+   
 </head>
+	<c:choose>
+		<c:when test="${session.username == null}">
+			<c:redirect url="index.jsp"/>
+		</c:when>
+	</c:choose>
 <body bgcolor="#99ffff">
 
 <div id='cssmenu'>
@@ -128,6 +137,8 @@
 	</c:forEach>
 	</font></b>
 </div>
+
+
 
 <div>
     <div id="container"> <div id="history"></div> </div>
