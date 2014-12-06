@@ -391,4 +391,17 @@ public class RmiBean {
 			}
 		}
 	}
+	
+	public boolean addMessage(int idAgendaItem, String username, String message){
+		while (true) {
+			try {
+				return rmiServer.addMessageToChat(idAgendaItem, username, message);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+	
 }

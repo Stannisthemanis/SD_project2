@@ -107,6 +107,7 @@
 			method="execute">
 			<result name="upcuming">/UpcomingMeetings.jsp</result>
 			<result name="current">/CurrentMeetings.jsp</result>
+			<result name="chatHistory">/ChatHistory.jsp</result>
 			<result name="chat">/Chat.jsp</result>
 		</action>
 
@@ -127,6 +128,9 @@
 			<result name="success">/UpcomingMeetings.jsp</result>
 		</action>
 
+		<action name="sendChat" class="meeto.sd2project.action.ChatAction"
+			method="execute">
+		</action>
 
 	</package>
 </struts>

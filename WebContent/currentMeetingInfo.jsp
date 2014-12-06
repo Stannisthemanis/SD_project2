@@ -45,6 +45,7 @@
 
 	<script type="text/javascript">
 		function addKeyDecision(id) {
+			window.alert('usename: '+pONumb);
 			var id_agenda_item = id.split(":")[0];
 			var newKey = window.prompt("New key decision", "new key decision");
 			window.location = "/SD_project2/agendaItemManager.action?operation=3&id_agenda_item="
@@ -53,7 +54,7 @@
 		
 		function chat(id){
 			var id_agenda_item = id.split(":")[0];
-			window.location = "/SD_project2/agendaItemManager.action?operation=4&id_agenda_item="
+			window.location = "/SD_project2/agendaItemManager.action?operation=5&id_agenda_item="
 					+ id_agenda_item;
 		}
 		

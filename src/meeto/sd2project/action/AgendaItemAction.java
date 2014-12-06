@@ -30,6 +30,14 @@ public class AgendaItemAction extends ActionSupport implements SessionAware {
 		}else if(operation==3){
 			System.out.println(getRmiBean().addKeyDecision(id_agenda_item, info));
 			return "current";
+		}else if(operation==4){
+			String result=getRmiBean().getChatHistory(id_agenda_item);
+			List<String> aux = new ArrayList<String>();
+			for (String s : result.split("\n")) {
+				aux.add(s);
+			}
+			setChatHistory(aux);
+			return "chatHistory";
 		}else{
 			String result=getRmiBean().getChatHistory(id_agenda_item);
 			List<String> aux = new ArrayList<String>();

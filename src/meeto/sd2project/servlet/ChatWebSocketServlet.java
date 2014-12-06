@@ -10,19 +10,13 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import meeto.sd2project.model.RmiBean;
+
 @ServerEndpoint(value = "/chat")
 public class ChatWebSocketServlet  {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	//private final AtomicInteger sequence = new AtomicInteger(0);    
 	private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
-//	protected String nickname;
-//	private ChatWebSocketServlet(int id) {
-//        this.nickname = "Client" + id;
-//    }
-//	
 	@OnOpen
 	public void onOpen(Session session) {
 		 System.out.println("New request received. Id: " + session.getId());
@@ -37,20 +31,16 @@ public class ChatWebSocketServlet  {
 	
 	@OnMessage
 	public void onMessage(Session session, String message) {
-//		try {
-//			System.out.println("sending message");
-//			session.getBasicRemote().sendText(message.toUpperCase());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
-		System.out.println("-> "+sessions.size());
-		System.out.println("Message Received: " + message);
+		int id_agenda_item = Integer.parseInt(message.split(",")[0]);
+		String username = message.split(",")[1];
+		String text = message.split(",")[2];
+		message=username+": "+text;
+		message = "<b><font size=\"5\">" + message + "</font></b>";
         for (Session s : sessions) {
-//        	if()
             System.out.println("Sending to " + s.getId());
             s.getAsyncRemote().sendText(message);
         }
+        new RmiBean().addMessage(id_agenda_item, username, text);
 	}
 	
 	@OnError

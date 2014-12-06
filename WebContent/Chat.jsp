@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 
@@ -21,15 +22,10 @@
         }
 
         function initialize() { // URI = ws://10.16.0.165:8080/chat/chat~
-          //  window.alert("into connect. "+ 'ws://' + window.location.host + '/SD_project2/chat');
             connect('ws://' + window.location.host + '/SD_project2/chat');
         }
 
         function connect(host) { // connect to the host websocket servlet
-           	/*window.alert('a');
-            alert("'WebSocket' in window-> "+ 'WebSocket' in window);
-           	windw.alert('c');
-            alert("'MozWebSocket' in window-> "+ 'MozWebSocket' in window)*/
             if ('WebSocket' in window){
                 websocket = new WebSocket(host);
             }
@@ -48,8 +44,7 @@
         }
 
         function onOpen(event) {
-        	//sessions.add(this);
-            writeToHistory('Connected to ' + window.location.host + '.');
+           // writeToHistory('Connected to ' + window.location.host + '.');
             document.getElementById('chat').onkeydown = function(key) {
                 if (key.keyCode == 13)
                     doSend(); // call doSend() on enter key
@@ -63,7 +58,6 @@
         
         function onMessage(message) { // print the received message
             writeToHistory(message.data);
-            //cena para guardar no rmi
         }
         
         function onError(event) {
@@ -72,10 +66,14 @@
         }
         
         function doSend() {
+       		var username = document.getElementById("username").value;
+       		var id_agenda_item = document.getElementById("id_agenda_item").value;
             var message = document.getElementById('chat').value;
             document.getElementById('chat').value = '';
             if (message != '')
-                websocket.send(message); // send the message
+                websocket.send(id_agenda_item+","+username+","+message); // send the message
+          //  window.location = "/SD_project2/sendChat.action?idAgendaItem="+id_agenda_item+"&username="
+			//		+ username+"&message="+message;
         }
 
         function writeToHistory(text) {
@@ -127,8 +125,12 @@
 </ul>
 </div>
 
+
 <div align="left">
 	<b><font size="5" color="red"> 
+	
+	
+	
 	<c:forEach
 		items="${chatHistory}" var="chatHistory">
 		<c:out value="${chatHistory}" />
@@ -138,9 +140,9 @@
 	</font></b>
 </div>
 
-
-
 <div>
+	<input type="hidden" id="username" value="${sessionScope.username}">
+	<input type="hidden" id="id_agenda_item" value="${id_agenda_item}">
     <div id="container"> <div id="history"></div> </div>
     <p> <input type="text" placeholder="type to chat" id="chat"> </p>
 </div>

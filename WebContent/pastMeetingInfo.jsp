@@ -44,6 +44,14 @@
 	</div>
 
 
+<script type="text/javascript">
+	function getChatHistory(id){
+	var id_agenda_item = id.split(":")[0];
+	window.location = "/SD_project2/agendaItemManager.action?operation=4&id_agenda_item="
+					+ id_agenda_item;
+	}
+</script>
+
 	<div align="center">
 		<h1>Past Meeting of user ${session.username}:</h1>
 		<br> <br>
@@ -74,7 +82,7 @@
 			Agenda itens: <font color="red"><br> <c:forEach
 					items="${agendaItens}" var="agendaItens">
 					<c:out value="${agendaItens}" />
-					<button>Check chat history</button>
+					<button value="${agendaItens}" onclick="getChatHistory(this.value)">Check chat history</button>
 					<br>
 				</c:forEach></font>
 		</h2>
