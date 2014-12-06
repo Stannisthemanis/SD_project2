@@ -15,13 +15,10 @@ public class OtherUsersAction extends ActionSupport implements SessionAware {
 	private static final long	serialVersionUID	= 1L;
 	private Map<String, Object>	session;
 	private List<String>		usersList;
+	private String				id_meeting;
 	
 	public String execute() {
 		String username = (String) session.get("username");
-		if (username == null) {
-			System.out.println("heere");
-			return LOGIN;
-		}
 		String users = getRmiBean().getListOtherUsers(username);
 		List<String> list = new ArrayList<String>();
 		for (int i = 0; i < users.split("\n").length; i++) {
@@ -31,8 +28,7 @@ public class OtherUsersAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 	
-	
-	public String getAllUsers(){
+	public String getAllUsers() {
 		String users = getRmiBean().getListOtherUsers("");
 		List<String> list = new ArrayList<String>();
 		for (int i = 0; i < users.split("\n").length; i++) {
@@ -42,6 +38,18 @@ public class OtherUsersAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 	
+	public String getUsersNotInvited() {
+		String username = (String) session.get("username");
+		String notInvitedUser = getRmiBean().getNotInvitedUsers(Integer.parseInt(this.id_meeting.replace(" ", "").split("-")[0]));
+		List<String> list = new ArrayList<String>();
+		for (String s : notInvitedUser.split("\n")) {
+			if (!s.equals(username)){
+				list.add(s);
+			}
+		}
+		setUsersList(list);
+		return SUCCESS;
+	}
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -65,6 +73,14 @@ public class OtherUsersAction extends ActionSupport implements SessionAware {
 	
 	public void setRmiBean(RmiBean rmiBean) {
 		this.session.put("RmiBean", rmiBean);
+	}
+	
+	public String getId_meeting() {
+		return id_meeting;
+	}
+	
+	public void setId_meeting(String id_meeting) {
+		this.id_meeting = id_meeting;
 	}
 	
 }

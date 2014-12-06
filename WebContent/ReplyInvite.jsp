@@ -50,9 +50,9 @@
 					+ id_invite;
 		}
 
-		function decline() {
+		function decline(id) {
 			var id_invite = id.split("-")[0];
-			window.location = "/SD_project2/replyInvite.action=answer=no&id_invite="
+			window.location = "/SD_project2/replyInvite.action?answer=no&id_invite="
 					+ id_invite;
 		}
 	</script>
@@ -94,7 +94,8 @@
 		</h2>
 		<br> <br> <br>
 		<button onclick="accept(this.value)" value="${id_invite}">Accept</button>
-		<button onclick="decline()">Decline</button>
+		<button onclick="decline(this.value)" value="${id_invite}">Decline</button>
+		<br><br><br>
 		<a href="Messages.jsp"><font size="5">return</font></a>
 	</div>
 </body>

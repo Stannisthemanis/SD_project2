@@ -25,9 +25,6 @@ public class NewMeetingAction extends ActionSupport implements SessionAware {
 	
 	public String execute() {
 		String username = (String) session.get("username");
-		if (username == null) {
-			return LOGIN;
-		}
 		String date = day + "/" + month + "/" + year + "," + hour + ":" + minute;
 		String listAgendaItens = agendaItens.replace("\n", ",");
 		if (invitedUsers.equals("")) {

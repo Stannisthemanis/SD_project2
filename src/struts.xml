@@ -4,6 +4,10 @@
 	  "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+
+	<constant name="struts.action.excludePattern" value="/chat" />
+
+
 	<package name="default" extends="struts-default">
 		<default-action-ref name="index" />
 		<global-results>
@@ -44,8 +48,6 @@
 
 		<action name="otherUsers" class="meeto.sd2project.action.OtherUsersAction"
 			method="execute">
-			<result name="success">sucess.jsp</result>
-			<result name="login">/index.jsp</result>
 		</action>
 
 		<action name="newMeting" class="meeto.sd2project.action.NewMeetingAction"
@@ -56,32 +58,22 @@
 
 		<action name="onlineUsers" class="meeto.sd2project.action.OnlineUsersAction"
 			method="execute">
-			<result name="login">/index.jsp</result>
-			<result name="success">sucess.jsp</result>
 		</action>
 
 		<action name="messageList" class="meeto.sd2project.action.MessageListAction"
 			method="execute">
-			<result name="login">/index.jsp</result>
-			<result name="success">sucess.jsp</result>
 		</action>
 
 		<action name="pastMeetingList" class="meeto.sd2project.action.PastMeetingListAction"
 			method="execute">
-			<result name="login">/index.jsp</result>
-			<result name="success">sucess.jsp</result>
 		</action>
 
 		<action name="currentMeetingList" class="meeto.sd2project.action.CurrentMeetingListAction"
 			method="execute">
-			<result name="login">/index.jsp</result>
-			<result name="success">sucess.jsp</result>
 		</action>
 
 		<action name="upcumingMeetingList"
 			class="meeto.sd2project.action.UpcumingMeetingListAction" method="execute">
-			<result name="login">/index.jsp</result>
-			<result name="success">sucess.jsp</result>
 		</action>
 
 		<action name="getInfoMeeting"
@@ -119,12 +111,22 @@
 		</action>
 
 		<action name="getAllUsers" class="meeto.sd2project.action.OtherUsersAction"
-            method="getAllUsers">
-         </action>
-         
+			method="getAllUsers">
+		</action>
+
+		<action name="getNotInvitedUsers" class="meeto.sd2project.action.OtherUsersAction"
+			method="getUsersNotInvited">
+		</action>
+
 		<action name="todoList" class="meeto.sd2project.action.TodoAction"
-            method="execute">
-         </action>
-		
+			method="execute">
+		</action>
+
+		<action name="inviteUser" class="meeto.sd2project.action.InviteUserAction"
+			method="execute">
+			<result name="success">/UpcomingMeetings.jsp</result>
+		</action>
+
+
 	</package>
 </struts>

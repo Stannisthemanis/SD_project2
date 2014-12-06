@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import rmiserver.RMIServerInterface;
 
@@ -359,4 +360,35 @@ public class RmiBean {
 		}
 	}
 
+	public String getNotInvitedUsers(int id_meeting){
+		while (true) {
+			try {
+				String allUsers = rmiServer.getListOtherUsers("");
+				String invitedUsers = rmiServer.getMeetingResumeV2(id_meeting).split(",")[6];
+				String finalList = "";
+				for (String s : allUsers.split("\n")) {
+					if (!invitedUsers.contains(s)) {
+						finalList += s+ "\n";
+					}
+				}
+				return finalList;
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
+
+	public boolean inviteUser(int id_meeting, String username){
+		while (true) {
+			try {
+				return rmiServer.inviteUserToMeeting(username, id_meeting);
+			} catch (RemoteException e) {
+				System.out.println("->> REMOTE Server: connection to rmiServer" + e.getMessage());
+				System.out.println("->> Server: trying to reconnect...");
+				connectToRmi();
+			}
+		}
+	}
 }

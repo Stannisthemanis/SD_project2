@@ -108,7 +108,7 @@
 			<s:hidden name="id_meeting" value="%{id_meeting}" />
 			<s:hidden name="operation" value="0" />
 			<s:textfield label="New action" name="actionName" />
-			<s:radio label="Users to invite" list="#allUsers.usersList"
+			<s:radio label="User" list="#allUsers.usersList"
 				name="user" />
 			<s:submit value="Add new action" align="center" />
 		</s:form>

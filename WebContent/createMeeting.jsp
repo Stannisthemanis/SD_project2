@@ -42,7 +42,7 @@
 	<h1>Creating a new meeting</h1>
 
 	<s:action name="correctDate" var="date" />
-	<s:action name="otherUsers" executeResult="true" var="user" />
+	<s:action name="otherUsers"  var="user" />
 
 	<s:form action="newMeting" method="post">
 		<s:textfield name="title" label="Title" required="true" />
